@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Menú raíz -->
+    <menuitem
+        id="main_property_management_menu"
+        name="Propiedades"
+    />
+
+    <menuitem
+        id="property_management_menu"
+        name="Inicio"
+        parent="main_property_management_menu"
+    />
+
+    <menuitem
+        id="entidades_menu"
+        name="Entidades"
+        parent="main_property_management_menu"
+    />
+   
+    <menuitem
+        id="property_menu"
+        name="Propiedades"
+        parent="property_management_menu"
+        action="property_management_property"
+    />
+
+    <menuitem
+        id="orientation_menu"
+        name="Orientación"
+        parent="entidades_menu"
+        action="property_management_orientation"
+    />
+
+    <menuitem
+        id="type_menu"
+        name="Tipo"
+        parent="entidades_menu"
+        action="property_management_type"
+    />
+
+    <menuitem
+        id="amb_menu"
+        name="Ambientes"
+        parent="entidades_menu"
+        action="property_management_amb"
+    />
+
+    <menuitem
+        id="tag_menu"
+        name="Etiquetas"
+        parent="entidades_menu"
+        action="property_management_tag"
+    />
+
+    <menuitem
+        id="crm_property_menu"
+        name="Propiedades"
+        parent="crm.crm_menu_root"
+        sequence="99"
+        groups="sales_team.group_sale_manager"
+        action="property_management_property"
+    />
+    
+</odoo>

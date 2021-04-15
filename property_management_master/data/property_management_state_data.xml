@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+    <record model="property.management.state" id="property_management_state_01">
+        <field name="name">Identificación</field>
+        <field name="sequence">1</field>
+        <field name="code">1</field>
+    </record>
+    <record model="property.management.state" id="property_management_state_02">
+        <field name="name">Captación</field>
+        <field name="sequence">2</field>
+        <field name="code">2</field>
+    </record>
+    <record model="property.management.state" id="property_management_state_03">
+        <field name="name">Publicación</field>
+        <field name="sequence">3</field>
+        <field name="code">3</field>
+    </record>
+    <record model="property.management.state" id="property_management_state_04">
+        <field name="name">Colocación</field>
+        <field name="sequence">4</field>
+        <field name="code">4</field>
+    </record>
+    <record model="property.management.state" id="property_management_state_05">
+        <field name="name">Formalización</field>
+        <!-- <field name="fold" eval="False"/> -->
+        <!-- <field name="is_won">True</field> -->
+        <field name="sequence">70</field>
+        <field name="code">5</field>
+    </record>
+
+</odoo>

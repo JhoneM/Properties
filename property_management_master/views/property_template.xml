@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="properties" name="Properties">
+        <t t-call="website.layout">
+            <div class="wrap">
+                <div t-if="properties" class="oe_product_cart_new row" style="overflow: hidden;">
+                    <t t-foreach="properties" t-as="property">
+                        <div class="col-md-4 col-sm-4 col-xs-12" style="padding:1px 1px 1px 1px;">
+                            <div style="border: 1px solid #f0eaea;width: 150px;height: auto;padding: 7% 0% 10% 0%;
+                                    border-radius: 3px;overflow: hidden;
+                                    margin: auto;
+                                    margin-bottom: 44px !important;width: 60%;height: 100%;">
+                                <div class="oe_product_image">
+                                    <center>
+                                        <div style="width:100%;overflow: hidden;">
+                                            <!-- <img t-if="property.image_1920" t-attf-src="/web/image/res.partner/#{property.id}/image_1920" class="img oe_product_image" style="padding: 0px; margin: 0px; width:auto; height:100%;"/> -->
+                                        </div>
+                                        <div style="text-align: left;margin: 10px 15px 3px 15px;">
+                                            <t t-if="property.name">
+                                                <a t-attf-href="/property/#{property.id}">
+                                                    <span t-esc="property.name" style="font-weight: bolder;color: #3e3b3b;"/>
+                                                </a>
+                                            </t>
+                                        </div>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <t t-else="">
+                    <div class="text-center text-muted">
+                        <h3 class="mt8">No results</h3>
+                    </div>
+                </t>
+            </div>
+            <div class="products_pager form-inline justify-content-center mt-3">
+                <t t-call="website.pager">
+                    <t t-set="_classes">mt-2 ml-md-2</t>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="property_page" name="Property">
+        <t t-call="website.layout">
+            <div class="wrap">
+                <span t-esc="property.name" style="font-weight: bolder;color: #3e3b3b;"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>

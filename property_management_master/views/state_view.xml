@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Árbol -->
+    <record model="ir.ui.view" id="state_tree_view">
+        <field name="name">state.tree</field>
+        <field name="model">property.management.state</field>
+        <field name="arch" type="xml">
+            <tree string="Estados">
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Formulario -->
+    <record model="ir.ui.view" id="state_form_view">
+        <field name="name">state.form</field>
+        <field name="model">property.management.state</field>
+        <field name="arch" type="xml">
+            <form string="Formulario">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Nombre" />
+                        </h1>
+                    </div>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field
+                        name="message_ids"
+                        widget="mail_thread"
+                        options="{'post_refresh': 'recipients'}"
+                    />
+                </div>
+            </form>
+        </field> 
+    </record>
+
+    <!-- Acción -->
+    <record model="ir.actions.act_window" id="property_management_state">
+        <field name="name">Estados</field>
+        <field name="res_model">property.management.state</field>
+        <field name="view_mode">tree,search,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Acá se listan los estados</p>
+        </field>
+    </record>
+
+</odoo>
