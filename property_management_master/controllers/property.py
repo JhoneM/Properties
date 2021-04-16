@@ -12,7 +12,7 @@ class WebsiteSaleForm(http.Controller):
         auth="public",
         website=True,
     )
-    def properties(self, page=0, search="", ppg=2, **post):
+    def properties(self, page=0, search="", ppg=4, sortby=None, **post):
         Property = request.env["property.management.property"]
         properties_count = Property.sudo().search_count([])
 
@@ -20,12 +20,42 @@ class WebsiteSaleForm(http.Controller):
             url="/properties",
             total=properties_count,
             page=page,
-            step=3,
+            step=ppg,
             scope=7,
         )
+
+        searchbar_sortings = {
+            "date": {
+                "label": _("Fecha de Publicación"),
+                "order": "create_date asc",
+            },
+            "price_max": {
+                "label": _("Precio Max"),
+                "order": "lease_price desc",
+            },
+            "price_min": {
+                "label": _("Precio Min"),
+                "order": "lease_price asc",
+            },
+            "area_max": {
+                "label": _("Superficie Max"),
+                "order": "total_area desc",
+            },
+            "area_min": {
+                "label": _("Superficie Min"),
+                "order": "total_area asc",
+            },
+        }
+
+        # default sort by order
+        if not sortby:
+            sortby = "area_max"
+        order = searchbar_sortings[sortby]["order"]
+
         properties = Property.sudo().search(
             [],
-            limit=3,
+            order=order,
+            limit=ppg,
             offset=pager["offset"],
         )
 

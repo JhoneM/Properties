@@ -14,7 +14,10 @@
                                 <div class="oe_product_image">
                                     <center>
                                         <div style="width:100%;overflow: hidden;">
-                                            <!-- <img t-if="property.image_1920" t-attf-src="/web/image/res.partner/#{property.id}/image_1920" class="img oe_product_image" style="padding: 0px; margin: 0px; width:auto; height:100%;"/> -->
+                                            <t t-foreach="property.image_ids" t-as="image">
+                                                <t t-esc="image.orden"/>
+                                                <img t-att-src="'data:image/png;base64,%s' % to_text(image.image)" class="img oe_product_image" style="padding: 0px; margin: 0px; width:auto; height:100%;"/>
+                                            </t>
                                         </div>
                                         <div style="text-align: left;margin: 10px 15px 3px 15px;">
                                             <t t-if="property.name">
