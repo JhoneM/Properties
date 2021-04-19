@@ -12,12 +12,19 @@
     "category": "Property_Management/Property_Management",
     "version": "1.0",
     "depends": [
+        "website",
         "website_form",
         "base",
         "crm",
+        'theme_common',
+        'website_animate',
+        'website_form',
+        'utm',
+        'hr'
     ],
     "data": [
         "security/ir.model.access.csv",
+        "security/property_management_property.xml",
         "data/property_management_state_data.xml",
         "data/property_management_type_data.xml",
         "data/property_management_origin_data.xml",

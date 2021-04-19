@@ -68,10 +68,19 @@
         <field name="model">property.management.property</field>
         <field name="arch" type="xml">
             <form string="Formulario" class="o_lead_opportunity_form">
+                <field name="active"  attrs="{'invisible': True}" />
+
                 <header>
                     <field name="state_prop_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}" />
                 </header>
                 <sheet>
+
+                    <div class="oe_button_box" name="button_box">
+                        <button name="website_publish_button" type="object" class="oe_stat_button" icon="fa-globe">
+                            <field name="is_published" widget="website_publish_button"/>
+                        </button>
+                    </div>
+
                     <field name="image_1920" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_128&quot;}" />
                     <div class="oe_title">
                         <label for="name" class="oe_edit_only"/>

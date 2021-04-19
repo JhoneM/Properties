@@ -1,6 +1,7 @@
 from odoo import fields, http, _
 from odoo.http import request
 
+
 class TableCompute(object):
 
     def __init__(self):
@@ -67,7 +68,9 @@ class TableCompute(object):
 
         return rows
 
+
 class WebsiteSaleForm(http.Controller):
+
     @http.route(
         [
             """/properties""",
@@ -80,10 +83,10 @@ class WebsiteSaleForm(http.Controller):
     def properties(self, page=0, search="", ppg=12, sortby=None, **post):
 
         #import wdb
-        #wdb.set_trace()
+        # wdb.set_trace()
 
         Property = request.env["property.management.property"]
-        properties_count = Property.sudo().search_count([])
+        properties_count = Property.search_count([])
 
         pager = request.website.pager(
             url="/properties",
@@ -121,7 +124,7 @@ class WebsiteSaleForm(http.Controller):
             sortby = "area_max"
         order = searchbar_sortings[sortby]["order"]
 
-        properties = Property.sudo().search(
+        properties = Property.search(
             [],
             order=order,
             limit=ppg,
@@ -134,21 +137,19 @@ class WebsiteSaleForm(http.Controller):
             "pager": pager,
             "properties": properties,
         }
-        
-
         return request.render(
             "property_management_master.properties", values
         )
 
     @http.route(
-        ["/property/<int:property_id>"], type="http", website=True
-    )
-    def property_details(self, property_id=None, **kw):
-        Property = request.env["property.management.property"]
-        property_obj = Property.sudo().browse([property_id])
+        ["/property/<model('property.management.property'):property_id>"],
+        type="http",
+        website=True,
+        auth="public")
+    def property_details(self, property_id, **kw):
         values = {
             "page_name": "Property",
-            "property": property_obj,
+            "property": property_id,
         }
 
         if kw.get("error"):
