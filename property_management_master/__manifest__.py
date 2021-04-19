@@ -34,6 +34,7 @@
         "views/property_map.xml",
         "views/property_origin.xml",
         "views/property_template.xml",
+        "views/templates.xml"
     ],
     "installable": True,
     "application": True,
