@@ -1,74 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="top_search" name="top search">
+        <div class="conteiner-nav">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" type="button">
+                    <span class="nav-toggler-icon"/>
+                </button>
+                <form>
+                    <div class="collapse navbar-collapse" id="menu">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="navbar-item dropdown">
+                                <h5 class="select-h5">OPERACIONES</h5>
+                                <select aria-label="OPERACIONES" class="form-select" id="real_state_op" name="real_state_op">
+                                    <t t-as="operation" t-foreach="operations">
+                                        <option t-att-value="operation[0]" t-esc="operation[1]" t-att-selected="operation[0] == get_vals['real_state_op'] if 'real_state_op' in get_vals else False"/>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="navbar-item dropdown">
+                                <h5 class="select-h5">TIPO DE PROPIEDAD</h5>
+                                <select aria-label="TIPO DE PROPIEDAD" class="form-select" id="property_type_id" name="property_type_id">
+                                    <option value="">Todas</option>
+                                    <t t-as="property_type" t-foreach="property_type_ids">
+                                        <option t-att-value="property_type.id" t-field="property_type.name" t-att-selected="str(property_type.id) ==  get_vals['property_type_id'] if  'property_type_id' in get_vals else False"/>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="navbar-item dropdown">
+                                <h5 class="select-h5">PRECIO MÍN.</h5>
+                                <select aria-label="PRECIO MÍN." class="form-select-price" id="amount_min" name="amount_min">
+                                    <option/>
+                                    <t t-as="amount" t-foreach="amount_min">
+                                        <option t-att-value="amount" t-esc="round(amount)"/>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="navbar-item dropdown">
+                                <h5 class="select-h5">PRECIO MÁX.</h5>
+                                <select aria-label="PRECIO MAX." class="form-select-price" id="amount_max" name="amount_max">
+                                    <option/>
+                                    <t t-as="amount" t-foreach="amount_max">
+                                        <option t-att-value="amount" t-esc="round(amount)"/>
+                                    </t>
+                                </select>
+                            </li>
+                        </ul>
+                        <div class="mb-3">
+                            <label class="form-label">COMUNA O  PALABRA CLAVE</label>
+                            <input class="form-control mr-sm-4" id="address" t-att-value="get_vals['address'] if  'address' in get_vals else ''" name="address"/>
+                            <button type="submit" class="btn btn-outline-secondary">
+                                <svg class="bi bi-search" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>APLICAR</button>
+                        </div>
+                    </div>
+                </form>
+            </nav>
+        </div>
+    </template>
     <template id="properties" name="Properties">
         <t t-call="website.layout">
             <div class="wrap">
-                <div class="container-fluid">
-                </div>
-                    <div class="conteiner-nav">
-                        <nav class="navbar navbar-expand-lg navbar-light">
-                            <button class="navbar-toggler" data-target="#menu" data-toggle="collapse" type="button">
-                                <span class="nav-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="menu">
-                                <ul class="navbar-nav mr-auto">
-                                    <li class="navbar-item dropdown">
-                                        <h5 class="select-h5"> OPERACIONES</h5> 
-                                        <select class="form-select" aria-label="Default select example">
-                                          <option ></option>
-                                          <option value="1">Venta</option>
-                                          <option value="2">Alquiler</option>
-                                          <option value="3">Alquiler Temporaneo</option>
-                                        </select>
-                                    </li>
-                                    <li class="navbar-item dropdown">
-                                         <h5 class="select-h5"> TIPO DE PROPIEDAD</h5> 
-                                         <select class="form-select" aria-label="Default select example">
-                                           <option ></option>
-                                           <option value="1">One</option>
-                                           <option value="2">Two</option>
-                                           <option value="3">Three</option>
-                                         </select>
-                                    </li>
-                                    <li class="navbar-item dropdown">   
-                                        <h5 class="select-h5">PRECIO MÍN.</h5> 
-                                        <select class="form-select-price" aria-label="Default select example">
-                                          <option ></option>
-                                          <option value="1">One</option>
-                                          <option value="2">Two</option>
-                                          <option value="3">Three</option>
-                                        </select>
-                                    </li>
-                                    <li class="navbar-item dropdown">
-                                    <h5 class="select-h5">PRECIO MÁX.</h5> 
-                                        <select class="form-select-price" aria-label="Default select example">
-                                         <option ></option>
-                                         <option value="1">One</option>
-                                         <option value="2">Two</option>
-                                         <option value="3">Three</option>
-                                        </select>
-                                    </li>
-                                </ul>
-                                <form class="form-inline" >
-                                    <div class="mb-3">
-                                        <label class="form-label"> COMUNA O  PALABRA CLAVE</label>
-                                        <input class="form-control mr-sm-4"/>
-                                        <button class="btn btn-outline-secondary">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                                            </svg>
-                                            APLICAR
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </nav>  
-                    </div>    
+                <div class="container-fluid"/>
+                <t t-call="property_management_master.top_search"/>
                 <div class="container container-property" style="background: #FFFFFF 0% 0% no-repeat padding-box">
-                    <h3 class="search-property"> Encuentra tu propiedad</h3>
-                    <div t-if="properties" class="row">
-                        <t t-foreach="properties" t-as="property">
-                            <div class="col-md-4 col-sm-4 col-xs-12 box-border-property" >
+                    <h3 class="search-property">Encuentra tu propiedad</h3>
+                    <div class="row" t-if="properties">
+                        <t t-as="property" t-foreach="properties">
+                            <div class="col-md-4 col-sm-4 col-xs-12 box-border-property">
                                 <div style="">
                                     <t t-call="property_management_master.property_item"/>
                                 </div>
@@ -81,16 +80,16 @@
                                     </div>
                                     <ol class="list-attr-property">
                                         <li class="col-4 li-attr-property">
-                                            <img src="property_management_master/static/src/img/bed.png" alt="Habitaciones" style="width:3vh; background: transparent; opacity: 1;"/>
-                                            <span class=""> 3 </span>
+                                            <img alt="Habitaciones" src="property_management_master/static/src/img/bed.png" style="width:3vh; background: transparent; opacity: 1;"/>
+                                            <span class="">3 </span>
                                         </li>
                                         <li class="col-4 li-attr-property">
-                                            <img src="property_management_master/static/src/img/bath.png" alt="Baños" class="bath-icon"/>
-                                            <span class=""> 2 </span>
+                                            <img alt="Baños" class="bath-icon" src="property_management_master/static/src/img/bath.png"/>
+                                            <span class="">2 </span>
                                         </li>
                                         <li class="col-4 li-attr-property">
-                                            <img src="property_management_master/static/src/img/ruler.png" alt="Medidas" style="width:3vh; background: transparent; opacity: 1;"/>
-                                            <span class=""> 260m </span>
+                                            <img alt="Medidas" src="property_management_master/static/src/img/ruler.png" style="width:3vh; background: transparent; opacity: 1;"/>
+                                            <span class="">260m </span>
                                         </li>
                                     </ol>
                                 </div>
@@ -106,19 +105,16 @@
             </div>
         </t>
     </template>
-
     <template id="property_page" name="Property">
         <t t-call="website.layout">
             <div class="wrap">
-                <span t-esc="property.name" style="font-weight: bolder;color: #3e3b3b;"/>
+                <span style="font-weight: bolder;color: #3e3b3b;" t-esc="property.name"/>
             </div>
         </t>
     </template>
-
     <template id="property_item" name="Property">
         <div class="image_content" style="width:100%; height:27vh; overflow: hidden;">
-            <img t-att-src="'data:image/png;base64,%s' % to_text(property.image_1920)" class="img-fluid rounded" style="overflow: hidden; "/>
+            <img class="img-fluid rounded" style="overflow: hidden; " t-att-src="'data:image/png;base64,%s' % to_text(property.image_1920)"/>
         </div>
     </template>
-
 </odoo>

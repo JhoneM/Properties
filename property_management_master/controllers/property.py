@@ -1,6 +1,18 @@
 from odoo import fields, http, _
 from odoo.http import request
 
+import logging
+
+_logger = logging.getLogger(__name__)
+
+MIN_ADRESS_CHAR = 3
+REAL_STATE_OPS = {
+    "0": "Todos",
+    "1": "Venta",
+    "2": "Ariendo",
+    "3": "Venta/Ariendo",
+}
+
 
 class TableCompute(object):
 
@@ -71,6 +83,23 @@ class TableCompute(object):
 
 class WebsiteSaleForm(http.Controller):
 
+    def get_adress_fields(self):
+        return ['name', 'street', 'street2', 'city', 'state_id', 'country_id']
+
+    def get_real_state_operations(self):
+        return [
+            ("0", _("Todos")),
+            ("1", _("Venta")),
+            ("2", _("Ariendo")),
+            ("3", _("Venta/Ariendo")),
+        ]
+
+    def get_real_state_currency(self):
+        return [request.env.ref('base.USD'), request.env.ref('base.CLP'), request.env.ref('base.UF')]
+
+    def get_default_price_range(self):
+        return [x for x in range(2000, 10000, 1000)]
+
     @http.route(
         [
             """/properties""",
@@ -79,14 +108,18 @@ class WebsiteSaleForm(http.Controller):
         type="http",
         auth="public",
         website=True,
+        methods=['GET']
     )
-    def properties(self, page=0, search="", ppg=12, sortby=None, **post):
+    def properties(self, page=0, search="", ppg=12, sortby=None, **get_vals):
 
-        #import wdb
-        # wdb.set_trace()
+        _logger.info(get_vals)
+        property_type_ids = request.env['property.management.type'].search([])
+        currency_ids = request.env['res.currency'].search([])
+        leaf = self.make_leaf(get_vals)
 
         Property = request.env["property.management.property"]
-        properties_count = Property.search_count([])
+
+        properties_count = Property.search_count(leaf)
 
         pager = request.website.pager(
             url="/properties",
@@ -125,21 +158,74 @@ class WebsiteSaleForm(http.Controller):
         order = searchbar_sortings[sortby]["order"]
 
         properties = Property.search(
-            [],
+            leaf,
             order=order,
             limit=ppg,
             offset=pager["offset"],
 
         )
-
+        price_range = self.get_default_price_range()
         values = {
             "search": search,
             "pager": pager,
             "properties": properties,
+            "property_type_ids": property_type_ids,
+            "currency_ids": currency_ids,
+            "operations": self.get_real_state_operations(),
+            "amount_min": price_range[:-1],
+            "amount_max": price_range[1:],
+            'get_vals': get_vals,
         }
         return request.render(
             "property_management_master.properties", values
         )
+
+    def make_leaf(self, vals, add_ammount=True):
+        leaf = []
+        op = False
+        if vals.get('real_state_op', False) and vals['real_state_op'] in ['1', '2', '3']:
+            op = 'both'
+
+            if vals['real_state_op'] == '1':
+                leaf.append(('real_estate_lease', '=', True))
+                op = 'lease'
+            elif vals['real_state_op'] == '2':
+                leaf.append(('real_estate_sale', '=', True))
+                op = 'sale'
+            elif vals['real_state_op'] == '3':
+                leaf.append(('real_estate_sale', '=', True))
+                leaf.append(('real_estate_lease', '=', True))
+
+        if vals.get('currency_id', False):
+            leaf.append(('type_id', '=', int(vals['type_id'])))
+        if vals.get('property_type_id', False) and vals['property_type_id'].isnumeric():
+            leaf.append(('type_id', '=', int(vals['property_type_id'])))
+
+        if vals.get('ammount_min', False) and add_ammount:
+            pass
+            """if op == 'lease':
+                leaf.append(('lease_price_currency', '>=',
+                             float(vals['ammount_min'])))
+            elif op == 'sale':
+                leaf.append(('sale_price_currency', '>=',
+                             float(vals['ammount_min'])))
+
+        if vals.get('ammount_max', False) and add_ammount:
+            if op == 'lease':
+                leaf.append(('lease_price_currency', '>=',
+                             float(vals['ammount_max'])))
+            elif op == 'sale':
+                leaf.append(('sale_price_currency', '>=',
+                             float(vals['ammount_max'])))"""
+
+        if vals.get('address', False) and len(vals['address'].strip()) > MIN_ADRESS_CHAR:
+            address_words = vals['address'].strip().replace(',', ' ').split()
+            for word in address_words:
+                if len(word) > MIN_ADRESS_CHAR:
+                    leaf.append(('address', 'ilike', '%%%s%%' % word))
+
+        _logger.info(leaf)
+        return leaf
 
     @http.route(
         ["/property/<model('property.management.property'):property_id>"],
