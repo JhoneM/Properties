@@ -95,7 +95,7 @@ class PropertyManagementProperty(models.Model):
         string='País',
         ondelete='restrict'
     )
-    address = fields.Text(
+    address_text = fields.Text(
         string='address',
         compute='_compute_address',
         store=True,
@@ -210,17 +210,19 @@ class PropertyManagementProperty(models.Model):
     @api.depends('name', 'street', 'street2', 'city', 'state_id', 'country_id')
     def _compute_address(self):
         for record in self:
-            address_format = "%(property_name)s\n %(street)s\n%(street2)s\n%(city)s %(state_code)s %(zip)s\n%(country_name)s"
+            address_format = "%(name)s\n %(street)s\n%(street2)s\n%(city)s %(state_code)s %(zip)s\n%(country_name)s"
             args = {
+                'street': record.street,
+                'street2': record.street2,
                 'state_code': record.state_id.code or '',
                 'state_name': record.state_id.name or '',
-                'city': record.city_id.name or '',
+                'city': record.city or '',
                 'country_code': record.country_id.code or '',
                 'zip': record.zip or '',
                 'country_name': record.country_id.display_name,
-                'property_name': record.name,
+                'name': record.name,
             }
-            return address_format % args
+            record.address_text = address_format % args
 
     @api.depends('origin_property')
     def _compute_origin_name(self):
@@ -327,18 +329,18 @@ class PropertyManagementProperty(models.Model):
         string=_("Precio de arriendo"),
         digits=(16, 3)
     )
-    """sale_price_company_currency = fields.Float(
+    sale_price_company_currency = fields.Float(
         string=_("Precio de venta en monena de la compania"),
         digits=(16, 3),
-        compute='_compute_sale_price_company_currency',
+        compute='_compute_price_company_currency',
         store=True
     )
     lease_price_company_currency = fields.Float(
         string=_("Precio de arriendo en monena de la compania"),
         digits=(16, 3),
-        compute='_compute_lease_price_company_currency',
+        compute='_compute_price_company_currency',
         store=True
-    )"""
+    )
     lease_price_currency = fields.Many2one(
         'res.currency',
         string=_("Moneda"),
@@ -485,15 +487,26 @@ class PropertyManagementProperty(models.Model):
             rec.previous_evaluation = rec.pivot_evaluation
             rec.pivot_evaluation = rec.evaluation
 
-    """@api.depends('sale_price', 'sale_price_currency')
-    def _compute_sale_price_company_currency(self):
-        company_currency_id = self.env['res.company']._company_default_get().currency_id
-        if self.sale_price_currency.id == company_currency_id.id:
- 
-    @api.depends('sale_price', 'sale_price_currency', 'lease_price', 'lease_price_currency')
+    @api.depends('state_id', 'sale_price', 'sale_price_currency', 'lease_price', 'lease_price_currency')
     def _compute_price_company_currency(self):
-        pass
-    """
+        company_currency_id = self.env['res.company']._company_default_get().currency_id
+        for record in self:
+            if record.sale_price_currency.id == company_currency_id.id:
+                record.sale_price_company_currency = record.sale_price
+                record.lease_price_company_currency = record.lease_price
+            else:
+                record.sale_price_company_currency = record.sale_price_currency._convert(
+                    record.sale_price,
+                    company_currency_id,
+                    self.env.company,
+                    fields.Date.today()
+                )
+                record.lease_price_company_currency = record.lease_price_currency._convert(
+                    record.sale_price,
+                    company_currency_id,
+                    self.env.company,
+                    fields.Date.today()
+                )
 
     @api.constrains(
         'total_area',

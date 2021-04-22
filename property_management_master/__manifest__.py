@@ -12,6 +12,7 @@
     "category": "Property_Management/Property_Management",
     "version": "1.0",
     "depends": [
+        "base",
         "website",
         "website_form",
         "base",
@@ -28,6 +29,7 @@
         "data/property_management_state_data.xml",
         "data/property_management_type_data.xml",
         "data/property_management_origin_data.xml",
+        "data/res_curency.xml",
         "views/property_view.xml",
         "views/state_view.xml",
         "views/type_view.xml",
@@ -41,7 +43,7 @@
         "views/property_map.xml",
         "views/property_origin.xml",
         "views/property_template.xml",
-        "views/templates.xml"
+        "views/templates.xml",
     ],
     "installable": True,
     "application": True,

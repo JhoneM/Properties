@@ -1,5 +1,7 @@
 from odoo import fields, http, _
 from odoo.http import request
+from odoo.addons.website.controllers.main import QueryURL
+from math import ceil, floor
 
 import logging
 
@@ -94,42 +96,8 @@ class WebsiteSaleForm(http.Controller):
             ("3", _("Venta/Ariendo")),
         ]
 
-    def get_real_state_currency(self):
-        return [request.env.ref('base.USD'), request.env.ref('base.CLP'), request.env.ref('base.UF')]
-
-    def get_default_price_range(self):
-        return [x for x in range(2000, 10000, 1000)]
-
-    @http.route(
-        [
-            """/properties""",
-            """/properties/page/<int:page>""",
-        ],
-        type="http",
-        auth="public",
-        website=True,
-        methods=['GET']
-    )
-    def properties(self, page=0, search="", ppg=12, sortby=None, **get_vals):
-
-        _logger.info(get_vals)
-        property_type_ids = request.env['property.management.type'].search([])
-        currency_ids = request.env['res.currency'].search([])
-        leaf = self.make_leaf(get_vals)
-
-        Property = request.env["property.management.property"]
-
-        properties_count = Property.search_count(leaf)
-
-        pager = request.website.pager(
-            url="/properties",
-            total=properties_count,
-            page=page,
-            step=ppg,
-            scope=7,
-        )
-
-        searchbar_sortings = {
+    def get_search_sortings(self):
+        return {
             "date": {
                 "label": _("Fecha de Publicación"),
                 "order": "create_date asc",
@@ -152,6 +120,98 @@ class WebsiteSaleForm(http.Controller):
             },
         }
 
+    def get_real_state_currency(self):
+        return [request.env.ref('base.USD'), request.env.ref('base.CLP'), request.env.ref('base.UF')]
+
+    def get_default_price_range(self, op,  leaf, currency=False, steps=6, granularity=1000):
+        company_currency = request.env.company.currency_id
+        if currency is False:
+            currency = company_currency
+
+        if op == '1':
+            min_field = max_field = 'sale_price_company_currency'
+        elif op == '2':
+            min_field = max_field = 'lease_price_company_currency'
+        else:
+            min_field = 'lease_price_company_currency'
+            max_field = 'sale_price_company_currency'
+
+        min_price = request.env["property.management.property"].search(
+            leaf, limit=1, order='%s asc' % min_field)
+        max_price = request.env["property.management.property"].search(
+            leaf, limit=1, order='%s desc' % max_field)
+        if min_price[min_field] >= max_price[max_field]:
+            return [(x, "%s %i" % (currency.name, x)) for x in range(20000, 10000000, 100)]
+        if len(min_price):
+            min_price = floor(min_price[min_field] / granularity) * granularity
+        if len(max_price):
+            max_price = ceil(max_price[max_field] / granularity) * granularity
+        step = ceil((max_price - min_price) /
+                    steps / granularity) * granularity
+        if company_currency.id == currency.id:
+            return [(x, "%s %i" % (currency.name, x)) for x in range(min_price, max_price, step)]
+        else:
+            res = []
+            for x in range(min_price, max_price, step):
+                val = currency._convert(
+                    x,
+                    company_currency,
+                    request.env.company,
+                    fields.Date.today()
+                )
+                res.append((int(val), "%s %i" % (currency.name, val)))
+            return res
+
+    @http.route(
+        [
+            """/properties""",
+            """/properties/page/<int:page>""",
+        ],
+        type="http",
+        auth="public",
+        website=True,
+        methods=['GET']
+    )
+    def properties(self, page=0, ppg=9, sortby=None, currency='', **post):
+
+        property_type_ids = request.env['property.management.type'].search([])
+        currency_ids = request.env['res.currency'].search([])
+        currency_id = request.env['res.currency']
+
+        if currency != '':
+            currency_id = request.env['res.currency'].search(
+                [('name', '=', currency)])
+        if not len(currency_id):
+            currency_id = request.env.company.currency_id
+
+        post['currency_id'] = currency_id
+        post['company_currency'] = request.env.company.currency_id
+
+        leaf = self.make_leaf(post)
+        op = post['real_state_op'] if 'real_state_op' in post else ''
+        price_leaf = self.make_leaf(post, False)
+        price_range = self.get_default_price_range(op, price_leaf, currency_id)
+
+        keep = QueryURL('/properties',
+                        real_state_op=post.get('real_state_op'),
+                        currency=currency,
+                        property_type_id=post.get('property_type_id'),
+                        amount_min=post.get('amount_min'),
+                        amount_max=post.get('amount_max'))
+
+        Property = request.env["property.management.property"]
+        properties_count = Property.search_count(leaf)
+        pager = request.website.pager(
+            url="/properties",
+            total=properties_count,
+            page=page,
+            step=ppg,
+            scope=7,
+            url_args=post,
+        )
+
+        searchbar_sortings = self.get_search_sortings()
+
         # default sort by order
         if not sortby:
             sortby = "area_max"
@@ -162,25 +222,25 @@ class WebsiteSaleForm(http.Controller):
             order=order,
             limit=ppg,
             offset=pager["offset"],
-
         )
-        price_range = self.get_default_price_range()
         values = {
-            "search": search,
             "pager": pager,
             "properties": properties,
             "property_type_ids": property_type_ids,
             "currency_ids": currency_ids,
+            "currency": currency_id,
             "operations": self.get_real_state_operations(),
             "amount_min": price_range[:-1],
             "amount_max": price_range[1:],
-            'get_vals': get_vals,
-        }
+            'get_vals': post,
+            'keep': keep,
+            "searchbar_sortings": searchbar_sortings,
+            "selected_sort": sortby,        }
         return request.render(
             "property_management_master.properties", values
         )
 
-    def make_leaf(self, vals, add_ammount=True):
+    def make_leaf(self, vals, add_amount=True):
         leaf = []
         op = False
         if vals.get('real_state_op', False) and vals['real_state_op'] in ['1', '2', '3']:
@@ -196,34 +256,69 @@ class WebsiteSaleForm(http.Controller):
                 leaf.append(('real_estate_sale', '=', True))
                 leaf.append(('real_estate_lease', '=', True))
 
-        if vals.get('currency_id', False):
-            leaf.append(('type_id', '=', int(vals['type_id'])))
+        if vals.get('total_area_min', False):
+            leaf.append(('total_area', '>=', float(
+                vals['total_area_min'].replace(',', '.'))))
+
+        if vals.get('total_area_max', False):
+            leaf.append(('total_area', '<=', float(
+                vals['total_area_max'].replace(',', '.'))))
+
+        if vals.get('bedroom_quantity_min', False):
+            leaf.append(('bedroom_quantity', '>=', int(
+                vals['bedroom_quantity_min'])))
+
+        if vals.get('bedroom_quantity_max', False):
+            leaf.append(('bedroom_quantity' '<=', int(
+                vals['bedroom_quantity_max'])))
+
+        if vals.get('dependecies_min', False):
+            leaf.append(('dependecies', '>=', int(vals['dependecies_min'])))
+
+        if vals.get('dependecies_max', False):
+            leaf.append(('dependecies' '<=', int(vals['dependecies_max'])))
+
         if vals.get('property_type_id', False) and vals['property_type_id'].isnumeric():
             leaf.append(('type_id', '=', int(vals['property_type_id'])))
 
-        if vals.get('ammount_min', False) and add_ammount:
-            pass
-            """if op == 'lease':
-                leaf.append(('lease_price_currency', '>=',
-                             float(vals['ammount_min'])))
-            elif op == 'sale':
-                leaf.append(('sale_price_currency', '>=',
-                             float(vals['ammount_min'])))
+        if vals.get('amount_min', False) and add_amount:
+            if vals['currency_id'].id != vals['company_currency'].id:
+                amount_min = vals['company_currency']._convert(
+                    float(vals['amount_min']),
+                    vals['currency_id'],
+                    request.env.company,
+                    fields.Date.today()
+                )
+            else:
+                amount_min = float(vals['amount_min'])
 
-        if vals.get('ammount_max', False) and add_ammount:
-            if op == 'lease':
-                leaf.append(('lease_price_currency', '>=',
-                             float(vals['ammount_max'])))
-            elif op == 'sale':
-                leaf.append(('sale_price_currency', '>=',
-                             float(vals['ammount_max'])))"""
+            if op != 'lease':
+                leaf.append(('sale_price_company_currency', '>=', amount_min))
+            if op != 'sale':
+                leaf.append(('lease_price_company_currency', '>=', amount_min))
+
+        if vals.get('amount_max', False) and add_amount:
+            if vals['currency_id'].id != vals['company_currency'].id:
+                amount_max = vals['company_currency']._convert(
+                    float(vals['amount_max']),
+                    vals['currency_id'],
+                    request.env.company,
+                    fields.Date.today()
+                )
+            else:
+                amount_max = float(vals['amount_max'])
+
+            if op != 'lease':
+                leaf.append(('lease_price_company_currency', '<=',
+                             amount_max))
+            elif op != 'sale':
+                leaf.append(('lease_price_company_currency', '<=', amount_max))
 
         if vals.get('address', False) and len(vals['address'].strip()) > MIN_ADRESS_CHAR:
             address_words = vals['address'].strip().replace(',', ' ').split()
             for word in address_words:
                 if len(word) > MIN_ADRESS_CHAR:
-                    leaf.append(('address', 'ilike', '%%%s%%' % word))
-
+                    leaf.append(('address_text', 'ilike', '%%%s%%' % word))
         _logger.info(leaf)
         return leaf
 

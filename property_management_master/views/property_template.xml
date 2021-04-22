@@ -13,7 +13,7 @@
                                 <h5 class="select-h5">OPERACIONES</h5>
                                 <select aria-label="OPERACIONES" class="form-select" id="real_state_op" name="real_state_op">
                                     <t t-as="operation" t-foreach="operations">
-                                        <option t-att-value="operation[0]" t-esc="operation[1]" t-att-selected="operation[0] == get_vals['real_state_op'] if 'real_state_op' in get_vals else False"/>
+                                        <option t-att-selected="operation[0] == get_vals['real_state_op'] if 'real_state_op' in get_vals else False" t-att-value="operation[0]" t-esc="operation[1]"/>
                                     </t>
                                 </select>
                             </li>
@@ -22,7 +22,15 @@
                                 <select aria-label="TIPO DE PROPIEDAD" class="form-select" id="property_type_id" name="property_type_id">
                                     <option value="">Todas</option>
                                     <t t-as="property_type" t-foreach="property_type_ids">
-                                        <option t-att-value="property_type.id" t-field="property_type.name" t-att-selected="str(property_type.id) ==  get_vals['property_type_id'] if  'property_type_id' in get_vals else False"/>
+                                        <option t-att-selected="str(property_type.id) ==  get_vals['property_type_id'] if 'property_type_id' in get_vals else False" t-att-value="property_type.id" t-field="property_type.name"/>
+                                    </t>
+                                </select>
+                            </li>
+                            <li class="navbar-item dropdown">
+                                <h5 class="select-h5">MONEDA</h5>
+                                <select aria-label="MONEDA" class="form-select-price" id="currency" name="currency">
+                                    <t t-as="currency_id" t-foreach="currency_ids">
+                                        <option t-att-selected="True and currency_id.id == currency.id or False" t-att-value="currency_id.name" t-field="currency_id.name"/>
                                     </t>
                                 </select>
                             </li>
@@ -31,7 +39,7 @@
                                 <select aria-label="PRECIO MÍN." class="form-select-price" id="amount_min" name="amount_min">
                                     <option/>
                                     <t t-as="amount" t-foreach="amount_min">
-                                        <option t-att-value="amount" t-esc="round(amount)"/>
+                                        <option t-att-selected="str(amount[0]) ==  get_vals['amount_min'] if  'amount_min' in get_vals else False" t-att-value="amount[0]" t-esc="amount[1]"/>
                                     </t>
                                 </select>
                             </li>
@@ -40,15 +48,17 @@
                                 <select aria-label="PRECIO MAX." class="form-select-price" id="amount_max" name="amount_max">
                                     <option/>
                                     <t t-as="amount" t-foreach="amount_max">
-                                        <option t-att-value="amount" t-esc="round(amount)"/>
+                                        <option t-att-selected="str(amount[0]) ==  get_vals['amount_max'] if  'amount_max' in get_vals else False" t-att-value="amount[0]" t-esc="amount[1]"/>
                                     </t>
                                 </select>
                             </li>
+                            <li class="navbar-item dropdown">
+                                <h5 class="select-h5">COMUNA O  PALABRA CLAVE</h5>
+                                <input class="form-control mr-sm-4" id="address" name="address" t-att-value="get_vals['address'] if  'address' in get_vals else ''"/>
+                            </li>
                         </ul>
                         <div class="mb-3">
-                            <label class="form-label">COMUNA O  PALABRA CLAVE</label>
-                            <input class="form-control mr-sm-4" id="address" t-att-value="get_vals['address'] if  'address' in get_vals else ''" name="address"/>
-                            <button type="submit" class="btn btn-outline-secondary">
+                            <button class="btn btn-outline-secondary" type="submit">
                                 <svg class="bi bi-search" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                                 </svg>APLICAR</button>
@@ -58,6 +68,46 @@
             </nav>
         </div>
     </template>
+    <template id="property_item" name="property item">
+        <div class="col-md-4 col-sm-4 col-xs-12 box-border-property">
+            <div style="">
+                <t t-call="property_management_master.property_item_image"/>
+            </div>
+            <div style="width:100%; height:20vh;">
+                <div class="property-title" t-esc="property.name"/>
+                <div class="property-description">Descripción propiedad</div>
+                <div>
+                    <span class="property-price-currency" t-esc="property.lease_price_currency.name"/>
+                    <span class="property-price" t-esc="property.lease_price"/>
+                </div>
+                <ol class="list-attr-property">
+                    <li class="col-4 li-attr-property">
+                        <img alt="Habitaciones" src="property_management_master/static/src/img/bed.png" style="width:3vh; background: transparent; opacity: 1;"/>
+                        <span class="" t-field="property.bedroom_quantity"/>
+                    </li>
+                    <li class="col-4 li-attr-property">
+                        <img alt="Baños" class="bath-icon" src="property_management_master/static/src/img/bath.png"/>
+                        <span class="" t-field="property.dependencies"/>
+                    </li>
+                    <li class="col-4 li-attr-property">
+                        <img alt="Medidas" src="property_management_master/static/src/img/ruler.png" style="width:3vh; background: transparent; opacity: 1;"/>
+                        <span class="" t-field="property.total_area"/>
+                        <span>m</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </template>
+    <template id="ordering" name="Properties">
+        <div class="btn-group">
+            <button aria-expanded="false" aria-haspopup="true" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" t-esc="'Ordernar por: %s' % searchbar_sortings[selected_sort]['label']" type="button"/>
+            <div class="dropdown-menu">
+                <t t-as="sort" t-foreach="searchbar_sortings">
+                    <a class="dropdown-item" t-att-href="request.httprequest.path + '?' + keep_query('*', sort=sort)" t-esc="searchbar_sortings[sort]['label']"/>
+                </t>
+            </div>
+        </div>
+    </template>
     <template id="properties" name="Properties">
         <t t-call="website.layout">
             <div class="wrap">
@@ -65,35 +115,10 @@
                 <t t-call="property_management_master.top_search"/>
                 <div class="container container-property" style="background: #FFFFFF 0% 0% no-repeat padding-box">
                     <h3 class="search-property">Encuentra tu propiedad</h3>
+                    <t t-call="property_management_master.ordering"/>
                     <div class="row" t-if="properties">
                         <t t-as="property" t-foreach="properties">
-                            <div class="col-md-4 col-sm-4 col-xs-12 box-border-property">
-                                <div style="">
-                                    <t t-call="property_management_master.property_item"/>
-                                </div>
-                                <div style="width:100%; height:20vh;">
-                                    <div class="property-title" t-esc="property.name"/>
-                                    <div class="property-description">Descripción propiedad</div>
-                                    <div>
-                                        <span class="property-price-currency" t-esc="property.lease_price_currency.name"/>
-                                        <span class="property-price" t-esc="property.lease_price"/>
-                                    </div>
-                                    <ol class="list-attr-property">
-                                        <li class="col-4 li-attr-property">
-                                            <img alt="Habitaciones" src="property_management_master/static/src/img/bed.png" style="width:3vh; background: transparent; opacity: 1;"/>
-                                            <span class="">3 </span>
-                                        </li>
-                                        <li class="col-4 li-attr-property">
-                                            <img alt="Baños" class="bath-icon" src="property_management_master/static/src/img/bath.png"/>
-                                            <span class="">2 </span>
-                                        </li>
-                                        <li class="col-4 li-attr-property">
-                                            <img alt="Medidas" src="property_management_master/static/src/img/ruler.png" style="width:3vh; background: transparent; opacity: 1;"/>
-                                            <span class="">260m </span>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
+                            <t t-call="property_management_master.property_item"/>
                         </t>
                     </div>
                     <div class="products_pager form-inline justify-content-center mt-3">
@@ -112,7 +137,7 @@
             </div>
         </t>
     </template>
-    <template id="property_item" name="Property">
+    <template id="property_item_image" name="Property">
         <div class="image_content" style="width:100%; height:27vh; overflow: hidden;">
             <img class="img-fluid rounded" style="overflow: hidden; " t-att-src="'data:image/png;base64,%s' % to_text(property.image_1920)"/>
         </div>
