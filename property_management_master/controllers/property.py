@@ -96,6 +96,17 @@ class WebsiteSaleForm(http.Controller):
             ("3", _("Venta/Ariendo")),
         ]
 
+    @http.route(
+        [
+            """/website/real_state_operations""",
+        ],
+        type="json",
+        auth="public",
+        methods=['GET', 'POST']
+    )
+    def real_state_operations(self, **post):
+        return self.get_real_state_operations()
+
     def get_search_sortings(self):
         return {
             "date": {
@@ -235,7 +246,7 @@ class WebsiteSaleForm(http.Controller):
             'get_vals': post,
             'keep': keep,
             "searchbar_sortings": searchbar_sortings,
-            "selected_sort": sortby,        }
+            "selected_sort": sortby, }
         return request.render(
             "property_management_master.properties", values
         )

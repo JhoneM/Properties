@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="s_real_state_search" name="s real state search">
+		<div t-attf-class="s_text_highlight  my-3 text-center w-100">
+			<form action="/properties">
+				<div class="container">
+					<h4 class="snipet_title">BUSCA TU PROPIEDAD</h4>
+					<label class="snipet_label">OPERACION</label>
+					<select aria-label="OPERACIONES" class="form-select" id="snippet_real_state_op" name="real_state_op">
+					</select>
+					<label class="snipet_label">TIPO DE PROPIEDAD</label>
+					<select aria-label="TIPO DE PROPIEDAD" class="form-select" id="snippet_property_type_id" name="property_type_id">
+						<option value="">Todas</option>
+					</select>
+					<label class="snipet_label">COMUNA O PALABRA CLAVE</label>
+					<input class="form-control mr-sm-4" id="snippet_address" name="address"/>
+					<button class="btn btn-outline-secondary" type="submit">
+						<svg class="bi bi-search" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+							<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+						</svg>BUSCAR</button>
+				</div>
+			</form>
+		</div>
+	</template>
+	<!--template id="assets_snippet_s_text_highlight_css_000" inherit_id="website.assets_frontend"><xpath expr="//link[last()]" position="after"><link rel="stylesheet" type="text/scss" href="/website/static/src/snippets/s_text_highlight/000.scss"/></xpath></template-->
+</odoo>

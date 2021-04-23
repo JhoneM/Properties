@@ -118,7 +118,7 @@ h5.select-h5{
    font: normal normal normal 14px/36px Ubuntu;
    text-transform: uppercase;
    opacity: 1;
-   width: 175px;
+   min-width: 175px;
    margin-left: 17%;
    height: 23px;
    margin-block-end: 2vh;
@@ -126,12 +126,12 @@ h5.select-h5{
 .form-select{
    width: 183px;
    height: 42px;
-   margin-left: 4vh;
+   /*margin-left: 4vh;*/
 }
 .form-select-price{
    width: 148px;
    height: 42px;
-   margin-left: 4vh;
+   /*margin-left: 4vh;*/
 }
 .navbar.navbar-expand-lg.navbar-light.o_colored_level.o_cc.shadow-sm{
    background-color: #012169;
@@ -146,4 +146,22 @@ h5.select-h5{
    background: var(--unnamed-color-515359) 0% 0% no-repeat padding-box;
    background: #515359 0% 0% no-repeat padding-box;
    opacity: 0.5;
+}
+.snipet_title{
+   text-align: center !important;
+   margin-left: 8%;
+   color: #012169 !important;
+   font: normal normal normal 22px/30px Ubuntu !important;
+   font-size: 12pt !important;
+   margin-top: 3% ;
+   text-transform: uppercase !important;
+}
+label.snipet_label{
+   letter-spacing: 1.4px;
+   color: #515359;
+   font: normal normal normal 14px/36px Ubuntu;
+   text-transform: uppercase;
+   opacity: 1;
+   height: 23px;
+   display: block;
 }

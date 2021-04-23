@@ -4,8 +4,8 @@
         <xpath expr="link[last()]" position="after">
             <link rel="stylesheet" type="text/scss" href="/property_management_master/static/src/scss/property.scss" />
         </xpath>
-        <!-- <xpath expr="script[last()]" position="after"> -->
-        <!--     <script type="text/javascript" src="/property_management_master/static/src/js/property.js"></script> -->
-        <!-- </xpath> -->
+         <xpath expr="script[last()]" position="after"> 
+             <script type="text/javascript" src="/property_management_master/static/src/js/property.js"></script> 
+         </xpath> 
     </template>
 </odoo>

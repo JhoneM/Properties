@@ -44,6 +44,9 @@
         "views/property_origin.xml",
         "views/property_template.xml",
         "views/templates.xml",
+        "views/snippets.xml",
+        "views/snippets/real_state_search.xml",
+
     ],
     "installable": True,
     "application": True,
