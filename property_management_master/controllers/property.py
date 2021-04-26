@@ -189,8 +189,6 @@ class WebsiteSaleForm(http.Controller):
         for item in string_arg:
             if item in post_values:
                 res[item] = str(post_values[item])
-
-        _logger.info("ers %r" % res)
         return res
 
     @http.route(

@@ -479,7 +479,7 @@ class PropertyManagementProperty(models.Model):
 
     def _compute_website_url(self):
         for record in self:
-            record.website_url = "/properties/%s" % (record.id)
+            record.website_url = "/property/%s" % (record.id)
 
     @api.onchange('evaluation')
     def _onchange_evaluation(self):
