@@ -29,28 +29,20 @@
                             <li class="navbar-item dropdown">
                                 <h5 class="select-h5">MONEDA</h5>
                                 <select aria-label="MONEDA" class="form-select-price" id="currency" name="currency">
+                                    <option/>
                                     <t t-as="currency_id" t-foreach="currency_ids">
-                                        <option t-att-selected="True and currency_id.id == currency.id or False" t-att-value="currency_id.name" t-field="currency_id.name"/>
+                                        <option t-att-selected="True and currency and currency_id.id == currency.id or False" t-att-value="currency_id.name" t-field="currency_id.name"/>
                                     </t>
                                 </select>
                             </li>
                             <li class="navbar-item dropdown">
                                 <h5 class="select-h5">PRECIO MÍN.</h5>
-                                <select aria-label="PRECIO MÍN." class="form-select-price" id="amount_min" name="amount_min">
-                                    <option/>
-                                    <t t-as="amount" t-foreach="amount_min">
-                                        <option t-att-selected="str(amount[0]) ==  get_vals['amount_min'] if  'amount_min' in get_vals else False" t-att-value="amount[0]" t-esc="amount[1]"/>
-                                    </t>
-                                </select>
+                                <input class="form-control mr-sm-4" id="amount_min" name="amount_min" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+
                             </li>
                             <li class="navbar-item dropdown">
                                 <h5 class="select-h5">PRECIO MÁX.</h5>
-                                <select aria-label="PRECIO MAX." class="form-select-price" id="amount_max" name="amount_max">
-                                    <option/>
-                                    <t t-as="amount" t-foreach="amount_max">
-                                        <option t-att-selected="str(amount[0]) ==  get_vals['amount_max'] if  'amount_max' in get_vals else False" t-att-value="amount[0]" t-esc="amount[1]"/>
-                                    </t>
-                                </select>
+                                <input class="form-control mr-sm-4" id="amount_max" name="amount_max" t-att-value="get_vals['amount_max'] if  'amount_max' in get_vals else ''"/>
                             </li>
                             <li class="navbar-item dropdown">
                                 <h5 class="select-h5">COMUNA O  PALABRA CLAVE</h5>
