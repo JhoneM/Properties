@@ -502,7 +502,7 @@ class PropertyManagementProperty(models.Model):
                     fields.Date.today()
                 )
                 record.lease_price_company_currency = record.lease_price_currency._convert(
-                    record.sale_price,
+                    record.lease_price,
                     company_currency_id,
                     self.env.company,
                     fields.Date.today()
