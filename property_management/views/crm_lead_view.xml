@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    
+    <record id="crm_lead_form_view_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form.view.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="priority" eval="2" />
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group[2]/div/field[@name='email_from']" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/div/h2" position="replace">
+                <field name="probability" invisible="1"/>
+            </xpath>
+            <xpath expr="//label[@for='phone']" position="replace">
+                <label for="mobile"/>
+            </xpath>
+            <xpath expr="//group[@name='opportunity_partner']/div[2]" position="replace">
+                <div class="o_row o_row_readonly">
+                    <button name="phone_action_blacklist_remove" class="fa fa-ban text-danger" title="This phone number is blacklisted for SMS Marketing. Click to unblacklist." type="object" context="{'default_phone': mobile}" groups="base.group_user" attrs="{'invisible': [('mobile_blacklisted', '=', False)]}"/>
+                    <field name="mobile" widget="phone" string="Mobile" readonly="True"/>
+                </div>
+                <field name="requeriment_date"/>
+            </xpath>
+            <xpath expr="//group[@name='opportunity_partner']" position="after">
+                <group name="company_info">
+                    <field name="user_id" string="Agente" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                    <field name="team_id" string="Sucursal" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                    <field name="company_id" string="Compañía" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                    <field name="referred_employee" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                </group>
+            </xpath>
+            <xpath expr="/form/sheet/group/group[6]" position="replace">
+            </xpath>
+            <xpath expr="//group[@name='company_info']" position="after">
+                <group string="Tipo de Operación">
+                    <label for="real_estate_lease" string="Arriendo"/>
+                        <div>
+                            <field name="real_estate_lease"/>
+                            &#x2063; &#x2063;
+                            <field name="lease_price" 
+                                class="oe_inline" 
+                                style="width: 30.835% !important;" 
+                                attrs="{'invisible': [('real_estate_lease', '=', False)]}"
+                            />
+                            &#x2063; &#x2063;
+                            <field name="lease_price_currency" 
+                                options="{'no_create_edit': True, 'no_open':True}"  
+                                nolabel="1" 
+                                style="width: 20.556% !important;" 
+                                class="oe_inline" 
+                                attrs="{'invisible': [('real_estate_lease', '=', False)]}"
+                            />
+                        </div>
+                        <label for="real_estate_sale" string="Compra"/>
+                        <div>
+                            <field name="real_estate_sale"/>
+                            &#x2063; &#x2063;
+                            <field name="sale_price"
+                                class="oe_inline" 
+                                style="width: 30.835% !important;" 
+                                attrs="{'invisible': [('real_estate_sale', '=', False)]}"
+                            />
+                            &#x2063; &#x2063;
+                            <field name="sale_price_currency" 
+                                options="{'no_create_edit': True, 'no_open':True}"  
+                                nolabel="1"
+                                style="width: 20.556% !important;" 
+                                class="oe_inline"
+                                attrs="{'invisible': [('real_estate_sale', '=', False)]}" 
+                            />
+                        </div>
+                    <field name="type_id" string="Tipo de Propiedad" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}" style="width: 63.7% !important;"/>
+                </group>
+            </xpath>
+            <xpath expr="//group[@name='opportunity_info']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_deadline']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='priority']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='tag_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            
+            <xpath expr="//form/sheet/notebook/page[@name='internal_notes']" position="before">
+                <page string="Necesidades" name="needs">
+                <group>
+                <group>
+                    <label for="bedroom_min" string="Dormitorios"/>
+                    <div>
+                        <label for="bedroom_min" string="Mín." style="width: 8% !important;"/>
+                        <field name="bedroom_min" class="oe_inline" style="width: 20% !important;"/>
+                            &#x2063; &#x2063;
+                        <label for="bedroom_max" string="Máx." style="width: 8% !important;"/>
+                        <field name="bedroom_max" class="oe_inline" style="width: 20% !important;"/>
+                    </div>
+                    <label for="bathroom_min" string="Baños"/>
+                    <div>
+                        <label for="bathroom_min" string="Mín." style="width: 8% !important;"/>
+                        <field name="bathroom_min" class="oe_inline" style="width: 20% !important;"/>
+                            &#x2063; &#x2063;
+                        <label for="bathroom_max" string="Máx." style="width: 8% !important;"/>
+                        <field name="bathroom_max" class="oe_inline" style="width: 20% !important;"/>
+                    </div>
+                    <label for="total_area_min" string="Superficie Total"/>
+                    <div>
+                        <label for="total_area_min" string="Mín." style="width: 8% !important;"/>
+                        <field name="total_area_min" class="oe_inline" style="width: 20% !important;"/>
+                            &#x2063; &#x2063;
+                        <label for="total_area_max" string="Máx." style="width: 8% !important;"/>
+                        <field name="total_area_max" class="oe_inline" style="width: 20% !important;"/>
+                    </div>
+                    
+                    <label for="lease_price_min" attrs="{'invisible': [('real_estate_lease', '=', False)]}" string="Precio de Arriendo"/>
+                    <div>
+                        <label for="lease_price_min" attrs="{'invisible': [('real_estate_lease', '=', False)]}" string="Mín." style="width: 8% !important;"/>
+                        <field name="lease_price_min" attrs="{'invisible': [('real_estate_lease', '=', False)]}" class="oe_inline" style="width: 20% !important;"/>
+                            &#x2063; &#x2063;
+                        <label for="lease_price_max" attrs="{'invisible': [('real_estate_lease', '=', False)]}" string="Máx." style="width: 8% !important;"/>
+                        <field name="lease_price_max" attrs="{'invisible': [('real_estate_lease', '=', False)]}" class="oe_inline" style="width: 20% !important;"/>
+                            &#x2063; &#x2063;
+                        <field name="lease_price_currency" attrs="{'invisible': [('real_estate_lease', '=', False)]}" style="width: 15% !important;" class="oe_inline"/>
+                    </div>
+                    <label for="sale_price_min" attrs="{'invisible': [('real_estate_sale', '=', False)]}" string="Precio de Compra"/>
+                    <div>
+                        <label for="sale_price_min" attrs="{'invisible': [('real_estate_sale', '=', False)]}" string="Mín." style="width: 8% !important;"/>
+                        <field name="sale_price_min" attrs="{'invisible': [('real_estate_sale', '=', False)]}" class="oe_inline" style="width: 20% !important;"/>
+                            &#x2063; &#x2063;
+                        <label for="sale_price_max" attrs="{'invisible': [('real_estate_sale', '=', False)]}" string="Máx." style="width: 8% !important;"/>
+                        <field name="sale_price_max" attrs="{'invisible': [('real_estate_sale', '=', False)]}" class="oe_inline" style="width: 20% !important;"/>
+                            &#x2063; &#x2063;
+                        <field name="sale_price_currency" attrs="{'invisible': [('real_estate_sale', '=', False)]}" style="width: 15% !important;" class="oe_inline"/>
+                    </div>
+                    <field name="characteristics" widget="many2many_tags" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}" style="width: 80% !important;"/>
+                    </group>
+                    <group>
+                        <label for="street" string="Dirección"/>
+                        <div>
+                            <field name="crm_city" placeholder="Comuna" class="o_address_city" invisible="1"/>
+                            <field name="crm_city_id" placeholder="Comuna" class="oe_inline" style="width: 32.4% !important;" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}" context="{'crm_state_id': crm_state_id, 'default_state_id': crm_state_id}"/>
+                                &#x2063; &#x2063;
+                            <field name="crm_state_id" placeholder="Región" class="oe_inline" style="width: 40% !important;" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}" context="{'crm_country_id': crm_country_id, 'zip': zip}"/>
+                                &#x2063; &#x2063;
+                            <field name="crm_zip" placeholder="C.P." class="oe_inline" style="width: 20% !important;"/>
+                                &#x2063; &#x2063;
+                            <field name="crm_country_id" placeholder="País" class="oe_inline" style="width: 98% !important;" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                        </div>
+                    </group>
+                    <group>
+                    <button name="search_propertys" string="Buscar" type="object" class="oe_highlight"/>
+                    </group>
+                </group>
+                </page>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page[@name='internal_notes']" position="before">
+                <group string="Propiedades">
+                        <field name="property_filter" width="10" force_save="1" invisible="1"/>
+                        <field name="property_ids" nolabel="1">
+                        <tree editable="1">
+                            <field name="property_id" string="Nombre" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}" attrs="{'readonly': [ ('property_id', '!=', False)]}" force_save="1"/>
+                            <field name="address" readonly="1" force_save="1"/>
+                            <field name="image_1920" string="Imagen" class="oe_left oe_avatar" widget="image" force_save="1"/>                            
+                            <field name="price" readonly="1" force_save="1"/>
+                            <field name="attributes" readonly="1" force_save="1"/>
+                            <field name="previous_evaluation" widget="priority" string="Valoración previa" readonly="0"/>
+                            <field name="visits" readonly="0"/>
+                            <field name="visits_date" readonly="0"/>
+                            <field name="evaluation" widget="priority" string="Valoración"/>
+                            <field name="visits_order" widget="binary"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page[@name='lead']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record model="ir.ui.view" id="crm_property_form">
+        <field name="name">crm.property.form</field>
+        <field name="model">crm.property.line</field>
+        <field name="arch" type="xml">
+            <form string="Type">
+                <h1>
+                    <field name="property_id" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                    <field name="image_1920"  nolabel="1" string="Imagen" class="oe_right oe_avatar" widget="image" force_save="1"/> 
+                </h1>
+                <group>
+                    <group>
+                        <field name="address"/>
+                    </group>             
+                    <group>
+                        <field name="price" readonly="1" force_save="1"/>
+                        <field name="attributes" readonly="1" force_save="1"/>
+                    </group>             
+                </group>                           
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="crm_property_action">
+        <field name="name">Propiedades</field>
+        <field name="res_model">crm.property.line</field>
+        <field name="view_mode">form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Acá se listan las propiedades.</p>
+        </field>
+    </record>
+     -->
+    <record id="quick_create_opportunity_form_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form.quick_create.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="attributes">
+                <attribute name="string">Contacto</attribute>
+                <attribute name="required">1</attribute>
+            </field>
+            <field name="name" position="attributes">
+                <attribute name="placeholder"></attribute>
+            </field>
+            <field name="email_from" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="phone" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="expected_revenue" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <field name="priority" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+            <xpath expr="//form/group/label" position="replace">
+                <label for="expected_revenue" string=""/>
+            </xpath>
+        </field>
+    </record>
+    
+        <record id="crm_case_kanban_view_leads_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.kanban.lead.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban/templates/t/div/div[2]/div[5]/div[1]/field[@name='priority']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

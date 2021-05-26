@@ -1,0 +1,1815 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* property_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-13 18:38+0000\n"
+"PO-Revision-Date: 2021-04-13 18:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_needaction
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_needaction
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_needaction
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_needaction
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_needaction
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_needaction
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_needaction
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_needaction
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_needaction
+msgid "Action Needed"
+msgstr "Necesita Acción"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__activity_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__activity_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__activity_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__activity_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__activity_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__activity_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__activity_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__activity_ids
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__activity_exception_decoration
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__activity_exception_decoration
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__activity_exception_decoration
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__activity_exception_decoration
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__activity_exception_decoration
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__activity_exception_decoration
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__activity_exception_decoration
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__activity_exception_decoration
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Actividad Excepcional"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__activity_state
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__activity_state
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__activity_state
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__activity_state
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__activity_state
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__activity_state
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__activity_state
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__activity_state
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__activity_state
+msgid "Activity State"
+msgstr "Estado de Actividad"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__activity_type_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__activity_type_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__activity_type_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__activity_type_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__activity_type_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__activity_type_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__activity_type_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__activity_type_icon
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícono de Tipo de Actividad"
+
+#. module: property_management
+#: model_terms:ir.actions.act_window,help:property_management.property_management_tag
+msgid "Acá se listan las características."
+msgstr "Acá se listan las características."
+
+#. module: property_management
+#: model_terms:ir.actions.act_window,help:property_management.property_management_orientation
+msgid "Acá se listan las orientaciones."
+msgstr "Acá se listan las orientaciones."
+
+#. module: property_management
+#: model_terms:ir.actions.act_window,help:property_management.property_management_property
+msgid "Acá se listan las propiedades"
+msgstr "Acá se listan las propiedades."
+
+#. module: property_management
+#: model_terms:ir.actions.act_window,help:property_management.property_management_restrictions
+msgid "Acá se listan las restricciones."
+msgstr "Acá se listan las restricciones."
+
+#. module: property_management
+#: model_terms:ir.actions.act_window,help:property_management.property_management_amenities
+msgid "Acá se listan los amenities."
+msgstr "Acá se listan los amenities."
+
+#. module: property_management
+#: model_terms:ir.actions.act_window,help:property_management.property_management_amb
+msgid "Acá se listan los espacios."
+msgstr "Acá se listan los espacios."
+
+#. module: property_management
+#: model_terms:ir.actions.act_window,help:property_management.property_management_state
+msgid "Acá se listan los estados."
+msgstr "Acá se listan los estados."
+
+#. module: property_management
+#: model_terms:ir.actions.act_window,help:property_management.property_management_origen
+msgid "Acá se listan los orígenes."
+msgstr "Acá se listan los orígenes."
+
+#. module: property_management
+#: model_terms:ir.actions.act_window,help:property_management.property_management_type
+msgid "Acá se listan los tipos de propiedades."
+msgstr "Acá se listan los tipos de propiedades."
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__attachments
+msgid "Documentos Adjuntos"
+msgstr "Documentos Adjuntos"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__real_estate_agent
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__real_estate_agent
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Agente"
+msgstr "Agente"
+
+#. module: property_management
+#: model:ir.actions.act_window,name:property_management.property_management_amenities
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__amenities
+#: model:ir.ui.menu,name:property_management.amenities_menu
+#: model_terms:ir.ui.view,arch_db:property_management.amenities_tree_view
+msgid "Amenities"
+msgstr "Amenities"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_attachments__attachments
+msgid "Archivo"
+msgstr "Adjuntos"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__real_estate_lease
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__real_estate_lease
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.property_kanban_view
+msgid "Arriendo"
+msgstr "Arriendo"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__elevator
+msgid "Ascensores"
+msgstr "Ascensores"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__attributes
+msgid "Atributos"
+msgstr "Atributos"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_attachment_count
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_attachment_count
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_attachment_count
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_attachment_count
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_attachment_count
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_attachment_count
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_attachment_count
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_attachment_count
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_attachment_count
+msgid "Attachment Count"
+msgstr "Número de Adjuntos"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_attachments
+msgid "Attachments"
+msgstr "Adjuntos"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__cons_year
+msgid "Año de Construcción"
+msgstr "Año de Construcción"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__dependencies
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Baños"
+msgstr "Baños"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__cellar
+msgid "Bodegas"
+msgstr "Bodegas"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Buscar"
+msgstr "Buscar"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__crm_zip
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__zip
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "C.P."
+msgstr "C.P."
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__street
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__street_kanban_report
+msgid "Calle"
+msgstr "Calle"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__street2
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__street2_kanban_report
+msgid "Calle 2"
+msgstr "Datos adicionales de Dirección y Ciudad"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Calle..."
+msgstr "Calle..."
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__campaign_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__campaign_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__campaign_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__campaign_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__campaign_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__campaign_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__campaign_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__campaign_id
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__campaign_id
+msgid "Campaign"
+msgstr "Campaña"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__no_editable
+msgid "Campo No Editable"
+msgstr "Campo No Editable"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__floor_quantity
+msgid "Cantidad de Pisos"
+msgstr "Cantidad de Pisos"
+
+#. module: property_management
+#: model:property.management.state,name:property_management.property_management_state_02
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Captación"
+msgstr "Captación"
+
+#. module: property_management
+#: model:ir.actions.act_window,name:property_management.property_management_tag
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__characteristics
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__tag_ids
+#: model:ir.ui.menu,name:property_management.tag_menu
+#: model_terms:ir.ui.view,arch_db:property_management.tag_tree_view
+msgid "Características"
+msgstr "Características"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_management_tag
+msgid "Características Propiedades"
+msgstr "Características de las Propiedades"
+
+#. module: property_management
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__evaluation__0
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__previous_evaluation__0
+msgid "Cero"
+msgstr "Cero"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__city_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__city_id
+msgid "City"
+msgstr "Comuna"
+
+#. module: property_management
+#: model:property.management.state,name:property_management.property_management_state_04
+msgid "Colocación"
+msgstr "Colocación"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__compute_price
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Comisión Arriendo"
+msgstr "Comisión Arriendo"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__commercial_appraisal_currency
+msgid "Commercial Appraisal Currency"
+msgstr "Moneda de Tasación Comercial"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__common_expenses_currency
+msgid "Common Expenses Currency"
+msgstr "Moneda de los Gastos Comunes"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Compañía"
+msgstr "Compañía"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__city
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__crm_city
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__crm_city_id
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.property_tree_view
+msgid "Comuna"
+msgstr "Comuna"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Comunidad"
+msgstr "Comunidad"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_res_partner__construction_company
+#: model:ir.model.fields,field_description:property_management.field_res_users__construction_company
+msgid "Construction Company"
+msgstr "Constructora"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__construction_company_id
+#: model_terms:ir.ui.view,arch_db:property_management.res_partner_form_view_inherit
+msgid "Constructora"
+msgstr "Constructora"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_res_partner
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__partner_id
+msgid "Contacto"
+msgstr "Contacto"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__contributions
+msgid "Contribuciones"
+msgstr "Contribuciones"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__contributions_currency
+msgid "Contributions Currency"
+msgstr "Moneda de las Contribuciones"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__property_coordenada
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Coordenadas"
+msgstr "Coordenadas"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Coordenadas Mapa"
+msgstr "Coordenadas del Mapa"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__broker
+#: model_terms:ir.ui.view,arch_db:property_management.res_partner_form_view_inherit
+msgid "Corredora"
+msgstr "Corredora"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__country_kanban_report
+msgid "Country"
+msgstr "País"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_attachments__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__create_uid
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_attachments__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__create_date
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__code
+msgid "Código"
+msgstr "Código"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Datos adicionales de Dirección y Ciudad"
+msgstr "Datos adicionales de Dirección y Ciudad"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__dep_x_floor
+msgid "Departamentos por Piso"
+msgstr "Departamentos por Piso"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__description
+msgid "Descripción"
+msgstr "Descripción"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__address
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Dirección"
+msgstr "Dirección"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_attachments__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__display_name
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__display_name
+#: model:ir.model.fields,field_description:property_management.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:property_management.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nombre Mostrado"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Documentación"
+msgstr "Documentación"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__bedroom_quantity
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Dormitorios"
+msgstr "Dormitorios"
+
+#. module: property_management
+#: model:ir.model.constraint,message:property_management.constraint_property_management_amb_name_uniq
+msgid "El Ambiente ingresado ya se encuentra registrado en el sistema."
+msgstr "El Ambiente ingresado ya se encuentra registrado en el sistema."
+
+#. module: property_management
+#: model:ir.model.constraint,message:property_management.constraint_property_amenities_name_uniq
+msgid "El Amenity ingresado ya se encuentra registrado en el sistema."
+msgstr "El Amenity ingresado ya se encuentra registrado en el sistema."
+
+#. module: property_management
+#: model:ir.model.constraint,message:property_management.constraint_property_management_origin_name_uniq
+msgid "El Origen ingresado ya se encuentra registrado en el sistema."
+msgstr "El Origen ingresado ya se encuentra registrado en el sistema."
+
+#. module: property_management
+#: model:ir.model.constraint,message:property_management.constraint_property_management_type_name_uniq
+msgid ""
+"El Tipo de Propiedad ingresado ya se encuentra registrado en el sistema."
+msgstr "El Tipo de Propiedad ingresado ya se encuentra registrado en el sistema."
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__email_cc
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__email_cc
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__email_cc
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__email_cc
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__email_cc
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__email_cc
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__email_cc
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__email_cc
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__email_cc
+msgid "Email cc"
+msgstr "E-Mail cc"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__employee
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__origin__employee
+msgid "Empleado"
+msgstr "Empleado"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__head
+msgid "Encabezado"
+msgstr "Encabezado"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_management_state__requirements
+msgid ""
+"Enter here the internal requirements for this stage (ex: Offer sent to "
+"customer). It will appear as a tooltip over the stage's name."
+msgstr ""
+
+#. module: property_management
+#: model:ir.ui.menu,name:property_management.entidades_menu
+msgid "Entidades"
+msgstr "Entidades"
+
+#. module: property_management
+#: model:ir.actions.act_window,name:property_management.property_management_amb
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__amb_ids
+#: model:ir.ui.menu,name:property_management.amb_menu
+#: model_terms:ir.ui.view,arch_db:property_management.amb_tree_view
+msgid "Espacios"
+msgstr "Espacios"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__parking
+msgid "Estacionamientos"
+msgstr "Estacionamientos"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__state_prop_id
+msgid "Estado"
+msgstr "Estado"
+
+#. module: property_management
+#: model:ir.actions.act_window,name:property_management.property_management_state
+#: model_terms:ir.ui.view,arch_db:property_management.state_tree_view
+msgid "Estados"
+msgstr "Estados"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_management_amb
+msgid "Etiquetas Ambientes"
+msgstr "Etiquetas Ambientes"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_amenities
+msgid "Etiquetas Amenities"
+msgstr "Etiquetas Amenities"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_restrictions
+msgid "Etiquetas Restricciones"
+msgstr "Etiquetas Restricciones"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__evaluation
+msgid "Evaluation"
+msgstr "Evaluación"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__exclusiveness
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Exclusividad"
+msgstr "Exclusividad"
+
+#. module: property_management
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__origin__external
+msgid "Externa"
+msgstr "Externa"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__requeriment_date
+msgid "Fecha de Necesidad"
+msgstr "Fecha de Necesidad"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__expiration_date
+msgid "Fecha de Vencimiento"
+msgstr "Fecha de Vencimiento"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__visits_date
+msgid "Fecha de Visitas"
+msgstr "Fecha de Visitas"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Financiera"
+msgstr "Financiera"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__sign
+msgid "Letrero"
+msgstr "Letrero"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__fold
+msgid "Folded in Pipeline"
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_follower_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_follower_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_follower_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_follower_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_follower_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_follower_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_follower_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_follower_ids
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_channel_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_channel_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_channel_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_channel_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_channel_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_channel_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_channel_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_channel_ids
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Seguidores (Canales)"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_partner_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_partner_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_partner_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_partner_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_partner_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_partner_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_partner_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_partner_ids
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__activity_type_icon
+#: model:ir.model.fields,help:property_management.field_property_management_amb__activity_type_icon
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__activity_type_icon
+#: model:ir.model.fields,help:property_management.field_property_management_origin__activity_type_icon
+#: model:ir.model.fields,help:property_management.field_property_management_property__activity_type_icon
+#: model:ir.model.fields,help:property_management.field_property_management_state__activity_type_icon
+#: model:ir.model.fields,help:property_management.field_property_management_tag__activity_type_icon
+#: model:ir.model.fields,help:property_management.field_property_management_type__activity_type_icon
+#: model:ir.model.fields,help:property_management.field_property_restrictions__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: property_management
+#: model:property.management.state,name:property_management.property_management_state_05
+msgid "Formalización"
+msgstr "Formalización"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.amb_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.amenities_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.orientation_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.property_management_origin_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.restrictions_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.state_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.tag_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.type_form_view
+msgid "Formulario"
+msgstr "Formulario"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Fotografias"
+msgstr "Fotografias"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__common_expenses
+msgid "Gastos Comunes"
+msgstr "Gastos Comunes"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "General"
+msgstr "General"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_res_config_settings__property_key_google_maps
+msgid "Google Maps Api Key"
+msgstr "Google Maps API Key"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__visiting_hours
+msgid "Horario de Visita"
+msgstr "Horario de Visita"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__id
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__id
+#: model:ir.model.fields,field_description:property_management.field_property_attachments__id
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__id
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__id
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__id
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__id
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__id
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__id
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__id
+#: model:ir.model.fields,field_description:property_management.field_res_config_settings__id
+#: model:ir.model.fields,field_description:property_management.field_res_partner__id
+msgid "ID"
+msgstr "ID"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__activity_exception_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__activity_exception_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__activity_exception_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__activity_exception_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__activity_exception_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__activity_exception_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__activity_exception_icon
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__activity_exception_icon
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__activity_exception_icon
+msgid "Icon"
+msgstr "Ícono"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__activity_exception_icon
+#: model:ir.model.fields,help:property_management.field_property_management_amb__activity_exception_icon
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__activity_exception_icon
+#: model:ir.model.fields,help:property_management.field_property_management_origin__activity_exception_icon
+#: model:ir.model.fields,help:property_management.field_property_management_property__activity_exception_icon
+#: model:ir.model.fields,help:property_management.field_property_management_state__activity_exception_icon
+#: model:ir.model.fields,help:property_management.field_property_management_tag__activity_exception_icon
+#: model:ir.model.fields,help:property_management.field_property_management_type__activity_exception_icon
+#: model:ir.model.fields,help:property_management.field_property_restrictions__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ícono para indicar una actividad excepcional."
+
+#. module: property_management
+#: model:property.management.state,name:property_management.property_management_state_01
+msgid "Identificación"
+msgstr "Identificación"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__message_needaction
+#: model:ir.model.fields,help:property_management.field_property_amenities__message_unread
+#: model:ir.model.fields,help:property_management.field_property_management_amb__message_needaction
+#: model:ir.model.fields,help:property_management.field_property_management_amb__message_unread
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__message_needaction
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__message_unread
+#: model:ir.model.fields,help:property_management.field_property_management_origin__message_needaction
+#: model:ir.model.fields,help:property_management.field_property_management_origin__message_unread
+#: model:ir.model.fields,help:property_management.field_property_management_property__message_needaction
+#: model:ir.model.fields,help:property_management.field_property_management_property__message_unread
+#: model:ir.model.fields,help:property_management.field_property_management_state__message_needaction
+#: model:ir.model.fields,help:property_management.field_property_management_state__message_unread
+#: model:ir.model.fields,help:property_management.field_property_management_tag__message_needaction
+#: model:ir.model.fields,help:property_management.field_property_management_tag__message_unread
+#: model:ir.model.fields,help:property_management.field_property_management_type__message_needaction
+#: model:ir.model.fields,help:property_management.field_property_management_type__message_unread
+#: model:ir.model.fields,help:property_management.field_property_restrictions__message_needaction
+#: model:ir.model.fields,help:property_management.field_property_restrictions__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, los nuevos mensajes requieren de su atención."
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__message_has_error
+#: model:ir.model.fields,help:property_management.field_property_amenities__message_has_sms_error
+#: model:ir.model.fields,help:property_management.field_property_management_amb__message_has_error
+#: model:ir.model.fields,help:property_management.field_property_management_amb__message_has_sms_error
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__message_has_error
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__message_has_sms_error
+#: model:ir.model.fields,help:property_management.field_property_management_origin__message_has_error
+#: model:ir.model.fields,help:property_management.field_property_management_origin__message_has_sms_error
+#: model:ir.model.fields,help:property_management.field_property_management_property__message_has_error
+#: model:ir.model.fields,help:property_management.field_property_management_property__message_has_sms_error
+#: model:ir.model.fields,help:property_management.field_property_management_state__message_has_error
+#: model:ir.model.fields,help:property_management.field_property_management_state__message_has_sms_error
+#: model:ir.model.fields,help:property_management.field_property_management_tag__message_has_error
+#: model:ir.model.fields,help:property_management.field_property_management_tag__message_has_sms_error
+#: model:ir.model.fields,help:property_management.field_property_management_type__message_has_error
+#: model:ir.model.fields,help:property_management.field_property_management_type__message_has_sms_error
+#: model:ir.model.fields,help:property_management.field_property_restrictions__message_has_error
+#: model:ir.model.fields,help:property_management.field_property_restrictions__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcado, algunos mensajes tuvieron un error en la entrega."
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__image_1920
+msgid "Image"
+msgstr "Imagen"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__image_1024
+msgid "Image 1024"
+msgstr "Imagen 1024"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__image_128
+msgid "Image 128"
+msgstr "Imagen 128"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__image_256
+msgid "Image 256"
+msgstr "Imagen 256"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__image_512
+msgid "Image 512"
+msgstr "Imagen 512"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__property_maps
+msgid "Image Html"
+msgstr "Imagen HTML"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__image
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Imagen"
+msgstr "Imagen"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_management_property_image
+msgid "Imagen de Propiedad"
+msgstr "Imagen de Propiedad"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__image_ids
+#: model_terms:ir.ui.view,arch_db:property_management.property_image_form_view
+msgid "Imágenes de la Propiedad"
+msgstr "Imágenes de la Propiedad"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_res_partner__is_broker
+#: model:ir.model.fields,field_description:property_management.field_res_users__is_broker
+msgid "Is Broker"
+msgstr "Corredora"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_is_follower
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_is_follower
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_is_follower
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_is_follower
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_is_follower
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_is_follower
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_is_follower
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_is_follower
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_is_follower
+msgid "Is Follower"
+msgstr "Seguidor"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__is_won
+msgid "Is Won Stage?"
+msgstr "¿La etapa se encuentra ganada?"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.res_config_settings_view_form_property
+msgid "Key:"
+msgstr "Clave:"
+
+#. module: property_management
+#: model:ir.model.constraint,message:property_management.constraint_property_management_tag_name_uniq
+msgid "La Característica ingresada ya se encuentra registrada en el sistema."
+msgstr "La Característica ingresada ya se encuentra registrada en el sistema."
+
+#. module: property_management
+#: model:ir.model.constraint,message:property_management.constraint_property_management_orientation_name_uniq
+msgid "La Orientación ingresada ya se encuentra registrada en el sistema."
+msgstr "La Orientación ingresada ya se encuentra registrada en el sistema."
+
+#. module: property_management
+#: model:ir.model.constraint,message:property_management.constraint_property_restrictions_name_uniq
+msgid "La Restricción ingresada ya se encuentra registrada en el sistema."
+msgstr "La Restricción ingresada ya se encuentra registrada en el sistema."
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_amenities____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_attachments____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_management_property____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_management_state____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_management_type____last_update
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions____last_update
+#: model:ir.model.fields,field_description:property_management.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:property_management.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Última Modificación en"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_attachments__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__write_uid
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_attachments__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__write_date
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización en"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Iniciativa/Oportunidad"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Letrero"
+msgstr "Letrero"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__email_cc
+#: model:ir.model.fields,help:property_management.field_property_management_amb__email_cc
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__email_cc
+#: model:ir.model.fields,help:property_management.field_property_management_origin__email_cc
+#: model:ir.model.fields,help:property_management.field_property_management_property__email_cc
+#: model:ir.model.fields,help:property_management.field_property_management_state__email_cc
+#: model:ir.model.fields,help:property_management.field_property_management_tag__email_cc
+#: model:ir.model.fields,help:property_management.field_property_management_type__email_cc
+#: model:ir.model.fields,help:property_management.field_property_restrictions__email_cc
+msgid "List of cc from incoming emails."
+msgstr ""
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_tree_view
+msgid "Lista de propiedades"
+msgstr "Lista de Propiedades"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__key
+msgid "Llaves"
+msgstr "Llaves"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_main_attachment_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_main_attachment_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_main_attachment_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_main_attachment_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_main_attachment_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_main_attachment_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_main_attachment_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_main_attachment_id
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjunto Principal"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__bathroom_max
+msgid "Máx. Baños"
+msgstr "Máx. Baños"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__bedroom_max
+msgid "Máx. Dormitorios"
+msgstr "Máx. Dormitorios"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__lease_price_max
+msgid "Máx. Precio de Arriendo"
+msgstr "Máx. Precio de Arriendo"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__sale_price_max
+msgid "Máx. Precio de Compra"
+msgstr "Máx. Precio de Compra"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__total_area_max
+msgid "Máx. Superficie Total"
+msgstr "Máx. Superficie Total"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Máx."
+msgstr "Máx."
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Media"
+msgstr "Media"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__medium_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__medium_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__medium_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__medium_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__medium_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__medium_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__medium_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__medium_id
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__medium_id
+msgid "Medium"
+msgstr "Medio"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_has_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_has_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_has_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_has_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_has_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_has_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_has_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_has_error
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_has_error
+msgid "Message Delivery error"
+msgstr "Error en el envío del mensaje"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__bathroom_min
+msgid "Mín. Baños"
+msgstr "Mín. Baños"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__bedroom_min
+msgid "Mín. Dormitorios"
+msgstr "Mín. Dormitorios"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__lease_price_min
+msgid "Mín. Precio de Arriendo"
+msgstr "Mín. Precio de Arriendo"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__sale_price_min
+msgid "Mín. Precio de Compra"
+msgstr "Mín. Precio de Compra"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__total_area_min
+msgid "Mín. Superficie Total"
+msgstr "Mín. Superficie Total"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Mín."
+msgstr "Mín."
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Mobile"
+msgstr "Móvil"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__agreed_commission_currency
+msgid "Moneda (Comisión Arriendo)"
+msgstr "Moneda (Comisión Arriendo)"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__lease_price_currency
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__lease_price_currency
+msgid "Moneda de Arriendo"
+msgstr "Moneda de Arriendo"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__sale_price_currency
+msgid "Moneda de Compra"
+msgstr "Moneda de Compra"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__sale_price_currency
+msgid "Moneda de Venta"
+msgstr "Moneda de Venta"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__city
+#: model_terms:ir.ui.view,arch_db:property_management.property_management_origin_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.property_management_origin_tree_view
+msgid "Name"
+msgstr "Nombre"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Necesidades"
+msgstr "Necesidades"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__activity_date_deadline
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__activity_date_deadline
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__activity_date_deadline
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__activity_date_deadline
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__activity_date_deadline
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__activity_date_deadline
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__activity_date_deadline
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__activity_date_deadline
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Fecha de Vencimiento de la Próxima Actividad"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__activity_summary
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__activity_summary
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__activity_summary
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__activity_summary
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__activity_summary
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__activity_summary
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__activity_summary
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__activity_summary
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__activity_summary
+msgid "Next Activity Summary"
+msgstr "Sumario de la Próxima Actividad"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__activity_type_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__activity_type_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__activity_type_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__activity_type_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__activity_type_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__activity_type_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__activity_type_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__activity_type_id
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__activity_type_id
+msgid "Next Activity Type"
+msgstr "Tipo de la Próxima Actividad"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__name
+#: model:ir.model.fields,field_description:property_management.field_property_attachments__name
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__name
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__name
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__name
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__name
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__name
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__name
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__name
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__name
+#: model_terms:ir.ui.view,arch_db:property_management.amb_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.amenities_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.orientation_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.property_management_origin_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.restrictions_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.state_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.tag_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.type_form_view
+msgid "Nombre"
+msgstr "Nombre"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__community_name
+msgid "Nombre de Comunidad"
+msgstr "Nombre de Comunidad"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_needaction_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_needaction_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_needaction_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_needaction_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_needaction_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_needaction_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_needaction_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_needaction_counter
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Acciones"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_has_error_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_has_error_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_has_error_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_has_error_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_has_error_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_has_error_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_has_error_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_has_error_counter
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de Errores"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__message_needaction_counter
+#: model:ir.model.fields,help:property_management.field_property_management_amb__message_needaction_counter
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__message_needaction_counter
+#: model:ir.model.fields,help:property_management.field_property_management_origin__message_needaction_counter
+#: model:ir.model.fields,help:property_management.field_property_management_property__message_needaction_counter
+#: model:ir.model.fields,help:property_management.field_property_management_state__message_needaction_counter
+#: model:ir.model.fields,help:property_management.field_property_management_tag__message_needaction_counter
+#: model:ir.model.fields,help:property_management.field_property_management_type__message_needaction_counter
+#: model:ir.model.fields,help:property_management.field_property_restrictions__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de Mensajes que Requieren una Acción"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__message_has_error_counter
+#: model:ir.model.fields,help:property_management.field_property_management_amb__message_has_error_counter
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__message_has_error_counter
+#: model:ir.model.fields,help:property_management.field_property_management_origin__message_has_error_counter
+#: model:ir.model.fields,help:property_management.field_property_management_property__message_has_error_counter
+#: model:ir.model.fields,help:property_management.field_property_management_state__message_has_error_counter
+#: model:ir.model.fields,help:property_management.field_property_management_tag__message_has_error_counter
+#: model:ir.model.fields,help:property_management.field_property_management_type__message_has_error_counter
+#: model:ir.model.fields,help:property_management.field_property_restrictions__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de Mensajes con Error de Envío"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__message_unread_counter
+#: model:ir.model.fields,help:property_management.field_property_management_amb__message_unread_counter
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__message_unread_counter
+#: model:ir.model.fields,help:property_management.field_property_management_origin__message_unread_counter
+#: model:ir.model.fields,help:property_management.field_property_management_property__message_unread_counter
+#: model:ir.model.fields,help:property_management.field_property_management_state__message_unread_counter
+#: model:ir.model.fields,help:property_management.field_property_management_tag__message_unread_counter
+#: model:ir.model.fields,help:property_management.field_property_management_type__message_unread_counter
+#: model:ir.model.fields,help:property_management.field_property_restrictions__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de Mensajes No Leídos"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__num_rol
+msgid "Número de Rol"
+msgstr "Número de Rol"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__orden
+msgid "Orden"
+msgstr "Orden"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__visits_order
+msgid "Orden de Visita"
+msgstr "Orden de Visita"
+
+#. module: property_management
+#: model:ir.actions.act_window,name:property_management.property_management_orientation
+#: model:ir.ui.menu,name:property_management.orientation_menu
+#: model_terms:ir.ui.view,arch_db:property_management.orientation_tree_view
+msgid "Orientaciones"
+msgstr "Orientaciones"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__orientation_id
+msgid "Orientación"
+msgstr "Orientación"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_management_orientation
+msgid "Orientación Propiedades"
+msgstr "Orientación de las Propiedades"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__origin_property
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Origen"
+msgstr "Origen"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__external_property
+msgid "Origen Externo"
+msgstr "Origen Externo"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__origin
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__origin_name
+msgid "Origin"
+msgstr "Nombre"
+
+#. module: property_management
+#: model:ir.actions.act_window,name:property_management.property_management_origen
+#: model:ir.ui.menu,name:property_management.origin_menu
+#: model_terms:ir.ui.view,arch_db:property_management.property_management_origin_tree_view
+msgid "Orígenes"
+msgstr "Orígenes"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_management_origin
+msgid "Orígenes de las Propiedades"
+msgstr "Orígenes de las Propiedades"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_search_view
+msgid "Packaging Type"
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__crm_country_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__country_id
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "País"
+msgstr "País"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__num_floor
+msgid "Piso"
+msgstr "Piso"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__compute_price_percentage
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__compute_price__percentage
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Porcentaje (Comisión Arriendo)"
+msgstr "Porcentaje (Comisión Arriendo)"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__agreed_commission_percent
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Valor del Porcentaje (Comisión Arriendo)"
+msgstr "Valor del Porcentaje (Comisión Arriendo)"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__price
+msgid "Precio"
+msgstr "Precio"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__agreed_commission_fixed
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Valor del Precio Fijo (Comisión Arriendo)"
+msgstr "Valor del Precio Fijo (Comisión Arriendo)"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__lease_price
+msgid "Precio de Arriendo"
+msgstr "Precio de Arriendo"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__sale_price
+msgid "Precio de Venta"
+msgstr "Precio de Venta"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__lease_price
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Precio de Arriendo"
+msgstr "Precio de Arriendo"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__sale_price
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Precio de Compra"
+msgstr "Precio de Compra"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__compute_price_fixed
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__compute_price__fixed
+msgid "Precio Fijo (Comisión Arriendo)"
+msgstr "Precio Fijo (Comisión Arriendo)"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__previous_evaluation
+msgid "Previous Evaluation"
+msgstr "Evaluación Previa"
+
+#. module: property_management
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__evaluation__1
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__previous_evaluation__1
+msgid "Primero"
+msgstr "Primero"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_attachments__property_id
+#: model_terms:ir.ui.view,arch_db:property_management.property_image_kanban_view
+msgid "Property"
+msgstr "Propiedad"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.res_config_settings_view_form_property
+msgid "Property - Google Maps Key API"
+msgstr "Propiedad - Google Maps Key API"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property_image__property_parent_id
+msgid "Property Parent"
+msgstr "Propiedad Padre"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_management_property
+msgid "Propiedad"
+msgstr "Propiedad"
+
+#. module: property_management
+#: model:ir.actions.act_window,name:property_management.property_management_property
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__property_ids
+#: model:ir.ui.menu,name:property_management.crm_property_menu
+#: model:ir.ui.menu,name:property_management.main_property_management_menu
+#: model:ir.ui.menu,name:property_management.property_menu
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Propiedades"
+msgstr "Propiedades"
+
+#. module: property_management
+#: model:property.management.state,name:property_management.property_management_state_03
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Publicación"
+msgstr "Publicación"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__referred_employee
+msgid "Referido"
+msgstr "Referido"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__crm_state_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__state_id
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.property_tree_view
+msgid "Región"
+msgstr "Región"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__requirements
+msgid "Requirements"
+msgstr "Requerimientos"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__activity_user_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__activity_user_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__activity_user_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__activity_user_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__activity_user_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__activity_user_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__activity_user_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__activity_user_id
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario Responsable de la Actividad"
+
+#. module: property_management
+#: model:ir.actions.act_window,name:property_management.property_management_restrictions
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__restrictions
+#: model:ir.ui.menu,name:property_management.restrictions_menu
+#: model_terms:ir.ui.view,arch_db:property_management.restrictions_tree_view
+msgid "Restricciones"
+msgstr "Restricciones"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_has_sms_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_has_sms_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_has_sms_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_has_sms_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_has_sms_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_has_sms_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_has_sms_error
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_has_sms_error
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de Entrega de SMS"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__team_id
+msgid "Sales Team"
+msgstr "Equipo de Ventas"
+
+#. module: property_management
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__evaluation__2
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__previous_evaluation__2
+msgid "Segundo"
+msgstr "Segundo"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__sequence
+msgid "Sequence"
+msgstr "Secuencia"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__source_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__source_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__source_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__source_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__source_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__source_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__source_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__source_id
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__source_id
+msgid "Source"
+msgstr "Fuente"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_management_state__team_id
+msgid ""
+"Specific team that uses this stage. Other teams will not be able to see or "
+"use this stage."
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__name
+msgid "Stage Name"
+msgstr "Nombre de Etapa"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__state_kanban_report
+msgid "State"
+msgstr "Estado"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__activity_state
+#: model:ir.model.fields,help:property_management.field_property_management_amb__activity_state
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__activity_state
+#: model:ir.model.fields,help:property_management.field_property_management_origin__activity_state
+#: model:ir.model.fields,help:property_management.field_property_management_property__activity_state
+#: model:ir.model.fields,help:property_management.field_property_management_state__activity_state
+#: model:ir.model.fields,help:property_management.field_property_management_tag__activity_state
+#: model:ir.model.fields,help:property_management.field_property_management_type__activity_state
+#: model:ir.model.fields,help:property_management.field_property_restrictions__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__team_id
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Sucursal"
+msgstr "Sucursal"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__builded_surface
+msgid "Superficie Construida"
+msgstr "Superficie Construida"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__total_area
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Superficie Total"
+msgstr "Superficie Total"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__commercial_appraisal
+msgid "Tasación Comercial"
+msgstr "Tasación Comercial"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__tax_assessment
+msgid "Tasación Fiscal"
+msgstr "Tasación Fiscal"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__tax_assessment_currency
+msgid "Tax Assessment Currency"
+msgstr "Moneda de Tasación Fiscal"
+
+#. module: property_management
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__evaluation__3
+#: model:ir.model.fields.selection,name:property_management.selection__property_management_property__previous_evaluation__3
+msgid "Tercero"
+msgstr "Tercero"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__campaign_id
+#: model:ir.model.fields,help:property_management.field_property_management_amb__campaign_id
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__campaign_id
+#: model:ir.model.fields,help:property_management.field_property_management_origin__campaign_id
+#: model:ir.model.fields,help:property_management.field_property_management_property__campaign_id
+#: model:ir.model.fields,help:property_management.field_property_management_state__campaign_id
+#: model:ir.model.fields,help:property_management.field_property_management_tag__campaign_id
+#: model:ir.model.fields,help:property_management.field_property_management_type__campaign_id
+#: model:ir.model.fields,help:property_management.field_property_restrictions__campaign_id
+msgid ""
+"This is a name that helps you keep track of your different campaign efforts,"
+" e.g. Fall_Drive, Christmas_Special"
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__medium_id
+#: model:ir.model.fields,help:property_management.field_property_management_amb__medium_id
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__medium_id
+#: model:ir.model.fields,help:property_management.field_property_management_origin__medium_id
+#: model:ir.model.fields,help:property_management.field_property_management_property__medium_id
+#: model:ir.model.fields,help:property_management.field_property_management_state__medium_id
+#: model:ir.model.fields,help:property_management.field_property_management_tag__medium_id
+#: model:ir.model.fields,help:property_management.field_property_management_type__medium_id
+#: model:ir.model.fields,help:property_management.field_property_restrictions__medium_id
+msgid "This is the method of delivery, e.g. Postcard, Email, or Banner Ad"
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__source_id
+#: model:ir.model.fields,help:property_management.field_property_management_amb__source_id
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__source_id
+#: model:ir.model.fields,help:property_management.field_property_management_origin__source_id
+#: model:ir.model.fields,help:property_management.field_property_management_property__source_id
+#: model:ir.model.fields,help:property_management.field_property_management_state__source_id
+#: model:ir.model.fields,help:property_management.field_property_management_tag__source_id
+#: model:ir.model.fields,help:property_management.field_property_management_type__source_id
+#: model:ir.model.fields,help:property_management.field_property_restrictions__source_id
+msgid ""
+"This is the source of the link, e.g. Search Engine, another domain, or name "
+"of email list"
+msgstr ""
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid ""
+"This phone number is blacklisted for SMS Marketing. Click to unblacklist."
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_management_state__fold
+msgid ""
+"This stage is folded in the kanban view when there are no records in that "
+"stage to display."
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__type_id
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__type_id
+msgid "Tipo de Propiedad"
+msgstr "Tipo de Propiedad"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Tipo de Operación"
+msgstr "Tipo de Operación"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_management_type
+msgid "Tipo de Propiedad"
+msgstr "Tipo de Propiedad"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Tipo de operación"
+msgstr "Tipo de Operación"
+
+#. module: property_management
+#: model:ir.actions.act_window,name:property_management.property_management_type
+#: model:ir.ui.menu,name:property_management.type_menu
+#: model_terms:ir.ui.view,arch_db:property_management.type_tree_view
+msgid "Tipos de Propiedades"
+msgstr "Tipos de Propiedades"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__virtual_tour
+msgid "Tour Virtual"
+msgstr "Recorrido Virtual"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__activity_exception_decoration
+#: model:ir.model.fields,help:property_management.field_property_management_amb__activity_exception_decoration
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__activity_exception_decoration
+#: model:ir.model.fields,help:property_management.field_property_management_origin__activity_exception_decoration
+#: model:ir.model.fields,help:property_management.field_property_management_property__activity_exception_decoration
+#: model:ir.model.fields,help:property_management.field_property_management_state__activity_exception_decoration
+#: model:ir.model.fields,help:property_management.field_property_management_tag__activity_exception_decoration
+#: model:ir.model.fields,help:property_management.field_property_management_type__activity_exception_decoration
+#: model:ir.model.fields,help:property_management.field_property_restrictions__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_unread
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_unread
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_unread
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_unread
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_unread
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_unread
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_unread
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_unread
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes No Leídos"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__message_unread_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__message_unread_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__message_unread_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__message_unread_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__message_unread_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__message_unread_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__message_unread_counter
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__message_unread_counter
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Número de Mensajes No Leídos"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_management_state__sequence
+msgid "Used to order stages. Lower is better."
+msgstr ""
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Valoración"
+msgstr "Valoración"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Valoración previa"
+msgstr "Valoración Previa"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__real_estate_sale
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+#: model_terms:ir.ui.view,arch_db:property_management.property_kanban_view
+msgid "Venta"
+msgstr "Venta"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_crm_lead__real_estate_sale
+#: model_terms:ir.ui.view,arch_db:property_management.crm_lead_form_view_inherit
+msgid "Compra"
+msgstr "Compra"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__video
+msgid "Video"
+msgstr "Video"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__visits
+msgid "Visitas"
+msgstr "Visitas"
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_amenities__website_message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_amb__website_message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_orientation__website_message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_origin__website_message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__website_message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__website_message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_tag__website_message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_management_type__website_message_ids
+#: model:ir.model.fields,field_description:property_management.field_property_restrictions__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del Sitio Web"
+
+#. module: property_management
+#: model:ir.model.fields,help:property_management.field_property_amenities__website_message_ids
+#: model:ir.model.fields,help:property_management.field_property_management_amb__website_message_ids
+#: model:ir.model.fields,help:property_management.field_property_management_orientation__website_message_ids
+#: model:ir.model.fields,help:property_management.field_property_management_origin__website_message_ids
+#: model:ir.model.fields,help:property_management.field_property_management_property__website_message_ids
+#: model:ir.model.fields,help:property_management.field_property_management_state__website_message_ids
+#: model:ir.model.fields,help:property_management.field_property_management_tag__website_message_ids
+#: model:ir.model.fields,help:property_management.field_property_management_type__website_message_ids
+#: model:ir.model.fields,help:property_management.field_property_restrictions__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "XXXXX-XXXXX"
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_property__zoom
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Zoom"
+msgstr "Zoom"
+
+#. module: property_management
+#: model_terms:ir.ui.view,arch_db:property_management.property_form_view
+msgid "Zoom Mapa"
+msgstr "Zoom Mapa"
+
+#. module: property_management
+#: model:ir.model,name:property_management.model_property_management_state
+msgid "property.management.state"
+msgstr ""
+
+#. module: property_management
+#: model:ir.model.fields,field_description:property_management.field_property_management_state__team_count
+msgid "team_count"
+msgstr ""

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="s_real_state_search" name="s real state search">
+		<section t-attf-class="s_text_highlight  my-3 text-center w-100">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 s_col_no_bgcolor text-center pt32 pb16" data-name="Box">
+						<span class="justify-content-center label-more-information">Busca tu propiedad</span>
+						<form action="/propiedades">
+							<div class="row s_col_no_bgcolor">
+								<div class="form-group col-12">
+									<div class="row s_col_no_resize s_col_no_bgcolor">
+										<label class="col-form-label col-sm-auto s_website_form_label ipt-information" for="snippet_real_state_op">
+											<span class="span-select">Operación</span>
+										</label>
+										<div class="input-data-client">
+											<select class="form-control" id="snippet_real_state_op" name="real_state_op"></select>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group col-12">
+									<div class="row s_col_no_resize s_col_no_bgcolor">
+										<label class="col-form-label col-sm-auto s_website_form_label ipt-information" for="snippet_address">
+											<span class="span-select">Comuna o palabra clave</span>
+										</label>
+										<div class="input-data-client">
+											<input class="form-control" id="snippet_address" name="address"/>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group col-12">
+									<div class="row s_col_no_resize s_col_no_bgcolor">
+										<label class="col-form-label col-sm-auto s_website_form_label ipt-information" for="snippet_property_type_id">
+											<span class="span-select">Tipo de propiedad</span>
+										</label>
+										<div class="input-data-client">
+											<select class="form-control" id="snippet_property_type_id" name="property_type_id">
+												<option value="">Todas</option>
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<div class="col cont-uni-searcher">
+									<button class="btn-searcher btn btn-outline-secondary" type="submit">
+										<svg class="bi bi-search searcher-elements-btn" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
+											xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+										</svg>
+										<span class="searcher-elements-btn">Buscar</span>
+									</button>
+								</div>
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</template>
+	<!--template id="assets_snippet_s_text_highlight_css_000" inherit_id="website.assets_frontend"><xpath expr="//link[last()]" position="after"><link rel="stylesheet" type="text/scss" href="/website/static/src/snippets/s_text_highlight/000.scss"/></xpath></template-->
+</odoo>

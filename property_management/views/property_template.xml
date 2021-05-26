@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/property_management/static/src/js/property.js"></script>
+        </xpath>
+    </template>
+
+    <template id="top_search" name="top search">
+        <div class="cont-nav">
+            <nav class="navbar navbar-expand-lg navbar-light fluid navbar-searcher">
+                <div class="container searcher-cont" id="menu">
+                    <form>
+                        <div class="row searcher-nav row-cols-1 row-cols-xs-6 row-cols-sm-4 row-cols-md-4">
+                            <div class="col cont-uni-searcher">
+                                <span class="span-select">OPERACIÓN</span>
+                                <select aria-label="OPERACION" class="form-select span-select-li" id="real_state_op" name="real_state_op">
+                                    <t t-as="operation" t-foreach="operations">
+                                        <option class="span-select-li" t-att-selected="operation[0] == get_vals['real_state_op'] if 'real_state_op' in get_vals else False" t-att-value="operation[0]" t-esc="operation[1]"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="col cont-uni-searcher">
+                                <span class="span-select">PROPIEDAD</span>
+                                <select aria-label="TIPO DE PROPIEDAD" class="form-select span-select-li" id="property_type_id" name="property_type_id">
+                                    <option value="" class="span-select-li">Todas</option>
+                                    <t t-as="property_type" t-foreach="property_type_ids">
+                                        <option class="span-select-li" t-att-selected="str(property_type.id) ==  get_vals['property_type_id'] if 'property_type_id' in get_vals else False" t-att-value="property_type.id" t-field="property_type.name"/>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="col cont-uni-searcher-currency">
+                                <span class="span-select">MONEDA</span>
+                                <select aria-label="MONEDA" class="form-select-price-currency span-select-li" id="currency" name="currency">
+                                    <t t-as="currency_id" t-foreach="currency_ids">
+                                        <option class="span-select-li" t-att-selected="True and currency and currency_id.id == currency.id or False" t-att-value="currency_id.name" t-field="currency_id.symbol"/>
+                                        <!-- <option class="span-select-li" t-att-selected="str(currency_id.name) ==  get_vals['currency'] if 'currency' in get_vals else False" t-att-value="currency_id.name" t-field="currency_id.symbol"/> -->
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="col cont-uni-searcher">
+                                <span class="span-select">PRECIO MÍN.</span>
+                                <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                            </div>
+                            <div class="col cont-uni-searcher">
+                                <span class="span-select">PRECIO MÁX.</span>
+                                <input class="form-select-price span-select-li" id="amount_max" name="amount_max" placeholder="  -" t-att-value="get_vals['amount_max'] if  'amount_max' in get_vals else ''"/>
+                            </div>
+                            <div class="col cont-uni-searcher">
+                                <label class="form-label-searcher">COMUNA O UBICACIÓN</label>
+                                <div class="btn-group btn-cont-searcher " data-toggle="button">
+                                    <input class="form-control-pp span-select-li" id="address" name="address" placeholder="  La Reina, RM, Chile" t-att-value="get_vals['address'] if  'address' in get_vals else ''"/>
+                                </div>
+                            </div>
+                            <div class="col cont-uni-searcher">      
+                                <button class="btn-searcher btn btn-outline-secondary" type="submit">
+                                <svg class="bi bi-search searcher-elements-btn" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                                <span class="searcher-elements-btn">APLICAR</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </template>
+
+    <template id="property_item" name="property item">
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="container box-border-property">
+            <div class="container-fluid">
+                <a t-att-href="property.website_url">
+                    <t t-call="property_management.property_item_image"/>
+                </a>
+            </div>
+            <div class="container property-information">
+                <!-- <div class="property-title"><a t-att-href="property.website_url + '?'  + keep_query('*')" t-field="property.name"/> </div> -->
+                <!-- <a t-attf-href="/property/#{property.id}"> -->
+                <div class="property-title" t-esc="property.head">
+                    <a t-att-href="property.website_url"/>
+                </div>
+                <div class="property-description">
+                    <li class="li-property-description">
+                        <span class="span-description" t-esc="property.city"/>,
+                        <span class="span-description" t-esc="property.state_id.name"/>
+                    </li>
+                </div>
+                <div class="property-prices-card">
+                    <t t-if="property.real_estate_lease">
+                        <li class="property-price">
+                            <span class="property-p-label">Arriendo</span>
+                            <!-- <span class="property-price-currency" t-esc="property.lease_price_currency.symbol"/>&#032; -->
+                            <span class="property-price-valor" t-esc="property.lease_price" t-options="{'widget': 'monetary', 'display_currency': property.lease_price_currency}"/>
+                        </li>
+                    </t>
+                    <t t-if="property.real_estate_sale">
+                        <li class="property-price">
+                            <span class="property-p-label">Venta</span>
+                            <!-- <span class="property-price-currency" t-esc="property.sale_price_currency.symbol"/>&#032; -->
+                            <span class="property-price-valor" t-esc="property.sale_price" t-options="{'widget': 'monetary', 'display_currency': property.sale_price_currency}"/>
+                        </li>
+                    </t>
+                </div>
+                <div class="container-fluid list-icons-general">
+                    <ol class="list-attr-property col-md-12">
+                        <li class="col-2 li-attr-property bed-li">
+                            <img alt="Habitaciones" src="/property_management/static/src/img/bed.svg" class="icon-property-pp"/>
+                            <span class="p-icon-txt" t-field="property.bedroom_quantity"/>
+                        </li>
+                        <li class="col-2 li-attr-property bat-li">
+                            <img alt="Baños" src="/property_management/static/src/img/bath.svg" class="icon-property-pp"/>
+                            <span class="p-icon-txt" t-field="property.dependencies"/>
+                        </li>
+                        <li class="col-4 li-attr-property">
+                            <img alt="Medidas C" src="/property_management/static/src/img/ruler.svg" class="icon-property-pp"/>
+                            <span class="p-icon-txt" t-field="property.builded_surface"/>
+                            <span class="p-icon-txt">m2</span>
+                        </li>
+                        <li class="col-4 li-attr-property">
+                            <img alt="Medidas T" src="/property_management/static/src/img/beach-umbrella-.svg" class="icon-property-pp"/>
+                            <span class="p-icon-txt" t-field="property.total_area"/>
+                            <span class="p-icon-txt">m2</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        </div>
+    </template>
+    <template id="ordering" name="property_sort">
+        <button aria-expanded="false" aria-haspopup="true" class="fa fa-bars btn sort-p" data-toggle="dropdown" type="button">
+            <span class="span-sort-property">Ordenar Por</span>
+        </button>
+        <div class="dropdown-menu">
+            <t t-as="sort" t-foreach="searchbar_sortings">
+                <a class="dropdown-item" t-att-href="request.httprequest.path + '?' + keep_query('*', sort=sort)" t-esc="searchbar_sortings[sort]['label']"/>
+            </t>
+        </div>
+    </template>
+    <template id="properties" name="Propiedades">
+        <t t-call="website.layout">
+            <div class="wrap">
+                <div class="container-fluid"/>
+                <t t-call="property_management.top_search"/>
+                <div class="container container-property">
+                    <div class="row justify-content-between">
+                        <div class="col-10">
+                            <span class="search-property">Encuentra tu propiedad</span>
+                        </div>
+                        <div class="col-2" style="align-self: center">
+                            <t t-call="property_management.ordering"/>
+                        </div>
+                    </div>
+                    <div class="row" t-if="properties">
+                        <t t-as="property" t-foreach="properties">
+                            <t t-call="property_management.property_item"/>
+                        </t>
+                    </div>
+                    <div class="products-pager form-inline justify-content-center mt-3">
+                        <t t-call="website.pager">
+                            <t t-set="_classes">mt-2 ml-md-2</t>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+    <!-- page property "NUESTRA RED DE OFICINAS" -->
+
+    <template id="property_page" name="Propiedad">
+        <t t-call="website.layout">
+            <div class="wrap">
+                <div class="container-fluid">
+                </div>
+                <div class="container container-property">
+                    <div class="row">
+                            <div class="col-md-12 type-property">
+                                <h5 class="title-type-property">
+                                    <t t-esc="property.type_id.name"/>
+                                </h5>
+                            </div>
+                            <div class="col-md-12">
+                                <h5 class="search-property-pp" id="property-head"><t t-esc="property.head"/>
+                                </h5>
+                                <h5 class="span-description">
+                                    <t t-esc="property.city"/>,
+                                    <t t-esc="property.state_id.name"/>
+                                </h5>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12">
+                            <div id="carouselProperty" class="row carousel slide" data-interval="10000">
+                                <div class="carousel-inner col-md-12 box-image-center">
+                                    <div class="carousel-item active image_content">
+                                        <img t-att-src="'data:image/png;base64,%s' % to_text(property.image_1920)" class="img-fluid rounded d-block w-100" style="overflow: hidden; "/>
+                                    </div>
+                                    <t t-foreach="property.image_ids" t-as="property_image">
+                                        <div class="carousel-item">
+                                            <img t-att-src="'data:image/png;base64,%s' % to_text(property_image.image)" class="img-fluid rounded d-block w-100" style="overflow: hidden; "/>
+                                        </div>
+                                    </t>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselProperty" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselProperty" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 icons-share-socmed">
+                                    <div data-snippet="s_share" class="s_share text-right no_icon_color" data-name="Share">
+                                        <div class="s_share_facebooks">
+                                            <i class="fa fa-share-alt rounded-empty-circle"/>
+                                        </div>
+                                        <a href="#" target="_blank" class="s_share_facebookBtn">
+                                            <i class="bg-200 fa fa-facebook rounded-circle"/>
+                                        </a>
+                                        <a href="#" target="_blank" class="s_share_twitterBtn">
+                                            <i class="bg-200 fa fa-twitter rounded-circle"/>
+                                        </a>
+                                        <a href="#" target="_blank" class="s_share_whatsappBtn">
+                                            <i class="bg-200 fa fa-whatsapp rounded-circle"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- box i want more information -->
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 bx-info">
+                            <div class="container box-container-mf">
+                                <form action="/website_form/" method="post" enctype="multipart/form-data" class="box-more-info o_mark_required" data-mark="*" data-success-mode="redirect" data-success-page="/contactus-thank-you" data-model_name="crm.lead">
+                                    <div class="row justify-content-center">
+                                            <span class="label-more-information" for="1xke9pk0f8t">Quiero más Información</span>
+                                        <div class="form-group s_website_form_field col-12 s_website_form_required  " data-type="char" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label ipt-information" for="1xke9pk0f8t">
+                                                    <span class="s_website_form_label_content">NOMBRE</span>
+                                                </label>
+                                                <div class="col-sm input-data-client">
+                                                    <input type="text" class="form-control s_website_form_input" name="contact_name" required="1" placeholder="" id="1xke9pk0f8t"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required  " data-type="email" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label ipt-information" for="0s11rxhrqpe">
+                                                    <span class="s_website_form_label_content">CORREO</span>
+                                                </label>
+                                                <div class="col-sm input-data-client">
+                                                    <input type="email" class="form-control s_website_form_input" name="email_from" required="1" id="0s11rxhrqpe"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required  " data-type="tel" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label ipt-information" for="0s11rxhrqpe">
+                                                    <span class="s_website_form_label_content">TELÉFONO</span>
+                                                </label>
+                                                <div class="col-sm input-data-client">
+                                                    <input type="tel" class="form-control s_website_form_input" name="tel_from" required="1" id="0s11rxhrqpe"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-12 s_website_form_field s_website_form_required  " data-type="text" data-name="Field">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label ipt-information" for="30a1xfbhs4z">
+                                                    <span class="s_website_form_label_content">MENSAJE</span>
+                                                </label>
+                                                <div class="col-sm input-data-client">
+                                                    <grammarly-extension data-grammarly-shadow-root="true" class="cGcvT"/>
+                                                    <textarea class="form-control s_website_form_input" name="description" required="1" placeholder="" id="30a1xfbhs4z" rows="3" spellcheck="false"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                                            <div class="s_website_form_label label-btn-wmi"/>
+                                            <a href="#" role="button" class="btn btn-outline-primary btn-lg btn-block s_website_form_send o_default_snippet_text btn-send-info">ENVIAR</a>
+                                            <span id="s_website_form_result"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- box information property -->
+                    <div class="row property-information-add">
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 box-information-vs-general">
+                            <div class="box-information-vs">
+                            <div class="grid">
+                                <div class="property-name">
+                                    <h4 class="label-name-pt">
+                                        <span class="property-name-type" t-esc="property.type_id.name"/>
+                                    </h4>
+                                </div>
+                                <div class="property-prices-card">
+                                    <t t-if="property.real_estate_lease">
+                                        <li class="property-price-bip">
+                                            <span class="property-p-label">Arriendo</span>
+                                            <!-- <t class="property-price-currency" t-esc="property.lease_price_currency.symbol"/>&#032; -->
+                                            <t class="property-price" t-esc="property.lease_price" t-options="{'widget': 'monetary', 'display_currency': property.lease_price_currency}"/>
+                                        </li>
+                                    </t>
+                                    <t t-if="property.real_estate_sale">
+                                        <li class="property-price-bip">
+                                            <span class="property-p-label">Venta</span>
+                                            <!-- <t class="property-price-currency" t-esc="property.sale_price_currency.symbol"/>&#032; -->
+                                            <t class="property-price" t-esc="property.sale_price" t-options="{'widget': 'monetary', 'display_currency': property.sale_price_currency}"/>
+                                        </li>
+                                    </t>
+                                </div>
+                                <div class="list-icon-pp-general">
+                                    <ul class="list-icons-pp">
+                                        <li class="li-attr-property-pp">
+                                            <img src="/property_management/static/src/img/bed.svg" alt="Habitaciones" class="icon-property"/>
+                                            <span class="pp-txt-vs" t-field="property.bedroom_quantity"/>
+                                            <span class="pp-txt-vs"> Habitación </span>
+                                        </li>
+                                        <li class="li-attr-property-pp">
+                                            <img src="/property_management/static/src/img/bath.svg" alt="Baños" class="icon-property"/>
+                                            <span class="pp-txt-vs" t-field="property.dependencies"/>
+                                            <span class="pp-txt-vs"> Baños </span>
+                                        </li>
+                                        <li class="li-attr-property-pp">
+                                            <img src="/property_management/static/src/img/ruler.svg" alt="Medidas C" class="icon-property"/>
+                                            <span class="pp-txt-vs" t-field="property.builded_surface"/>
+                                            <span class="pp-txt-vs">m2 Construidos</span>
+                                        </li>
+                                        <li class="li-attr-property-pp">
+                                            <img src="/property_management/static/src/img/beach-umbrella-.svg" alt="Medidas T" class="icon-property"/>
+                                            <span class="pp-txt-vs" t-field="property.total_area"/>
+                                            <span class="pp-txt-vs">m2 Totales</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                            <div class="box-information-vs image-map-content">
+                                <span style="display:none" id="coordenada_lat"><t t-esc="property.property_coordenada_lat"/></span>
+                                <span style="display:none" id="coordenada_lng"><t t-esc="property.property_coordenada_lng"/></span>
+                                <div id="googleMap" style="height:25.5em;"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                        <div class="container">
+                            <div class="box-information-advisor">
+                                <div class="inner-advisor">
+                                    <div class="image-name">
+                                        <div class="">
+                                            <img class="img-asesor" t-att-src="'data:image/png;base64,%s' % to_text(property.real_estate_agent.image_1920)"/>
+                                        </div>
+                                        <div class="property-employee-data">
+                                            <h6>
+                                                <t t-esc="property.real_estate_agent.job_title"/>
+                                            </h6>
+                                            <h5>
+                                                <t t-esc="property.real_estate_agent.name"/>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div class="property-employee-contact">
+                                        <h5>
+                                            <t t-esc="property.real_estate_agent.address_id.name"/>
+                                        </h5>
+                                        <h6>
+                                            <t t-esc="property.real_estate_agent.mobile_phone"/>
+                                        </h6>
+                                        <h6>
+                                            <span t-esc="property.real_estate_agent.work_email"/>
+                                        </h6>
+                                    </div>
+                                    <div class="">    
+                                        <a href="#" role="button" class="btn btn-outline-primary btn-lg s_website_form_send o_default_snippet_text btn-schedule-appointment">AGENDAR CITA</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>    
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="title-p-description">Descripción</h4>
+                            <p class="txt-p-description">
+                                <span t-esc="property.description"/>
+                            </p>
+                        </div>
+                    </div>
+                    <h4 class="title-p-add-info">Información Adicional</h4>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-8 col-sm-12 col-xs-12 add-info-property">
+                                <ul class="list-add-info">
+                                    <t t-foreach="property.amenities" t-as="amenitie">
+                                        <li class="tag-add-info-pp">
+                                            <t t-esc="amenitie.name"/>
+                                        </li>
+                                    </t>
+                                    <t t-foreach="property.amb_ids" t-as="amb">
+                                        <li class="tag-add-info-pp">
+                                            <t t-esc="amb.name"/>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 add-info-property">
+                                <ul class="list-add-info">
+                                    <t t-foreach="property.tag_ids" t-as="tag">
+                                        <li class="tag-add-info-pp">
+                                            <t t-esc="tag.name"/>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="container  box-enviroment">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-8 col-sm-12 col-xs-12">
+                                <img alt="Entorno" src="/property_management/static/src/img/edificios.svg" class="icon-property-enviroment"/>
+                                <h4 class="label-enviroment">Entorno</h4>
+                            </div>
+                            <div class="col-lg-4 col-md-8 col-sm-12 col-xs-12">
+                                    <ul class="add-info-property-enviromet">
+                                        <t t-foreach="property.tag_ids" t-as="tag">
+                                            <li class="tag-add-info-pp">
+                                                <t t-esc="tag.name"/>
+                                            </li>
+                                        </t>
+                                    </ul>    
+                            </div>
+                            <div class="col-lg-4 col-md-8 col-sm-12 col-xs-12 add-info-property">
+                                <ul class="add-info-property-enviromet">
+                                    <t t-foreach="property.amenities" t-as="amen">
+                                        <li class="tag-add-info-pp">
+                                            <t t-esc="amen.name"/>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>            
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </t>
+        <script type="text/javascript" src="/property_management/static/src/js/property_rrss.js"></script>
+        <t t-if="google_maps_api_key">
+            <script t-attf-src="//maps.google.com/maps/api/js?key=#{google_maps_api_key}"></script>
+            <script type="text/javascript" src="/property_management/static/src/js/property_map.js"></script>
+        </t>
+        <t t-else="1">
+            <script src="//maps.google.com/maps/api/js"></script>
+        </t>
+    </template>
+
+
+    <template id="property_item_image" name="property_img">
+        <div class="image-content-pp">
+            <img class="img-fluid rounded" t-att-src="'data:image/png;base64,%s' % to_text(property.image_1920)"/>
+        </div>
+    </template>
+</odoo>

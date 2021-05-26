@@ -1,0 +1,675 @@
+:root{
+   // colors:
+   $principal-color: #012169;
+   $secondary-color: #515359;
+   $unnamed-color-2d2926: #2D2926;
+   $unnamed-color-ececec: #ECECEC;
+   $unnamed-color-ffffff: #FFFFFF;
+   $unnamed-color-828487: #828487;
+   $unnamed-color-e5e8f0: #E5E8F0;
+   $unnamed-color-418fde: #418FDE;
+}
+
+// searcher property
+.navbar.navbar-searcher{
+   background-color: #ececec;
+   height: auto;
+   width: 100%;
+   display: inline-block;
+}
+.grid{
+   display: grid;
+   grid-template-rows: 3em 5em 13em;
+   align-items: center;
+   gap: 1em;
+   border: solid 20px;
+   border-color: #ECECEC;
+}
+.searcher-nav{
+   display: inline-flex;
+   justify-content: center;
+   width: 100%;
+   min-width: 320px;
+   margin: 0;
+}
+.form-control-pp{
+   height: 3.2em;
+   width: 16.5em;
+   border-radius: 0%;
+   border-color: #63666A80;
+   background: white;
+   border-style: solid;
+   border-width: 1px;
+}
+.container-nav.container-fluid{
+   background-color: #ececec;
+   width: 100%;
+   padding: 0;
+}
+.searcher-cont{
+   margin-top: 2em;
+   margin-bottom: 2em ;
+}
+.p-icon-txt{
+   color: #515359;
+   font-size: 1.7vh;
+   margin-left: 0.2vh;
+}
+.mb-3, .my-3{
+   margin-bottom: 0rem !important;
+   margin-left: 1em;
+}
+
+.form-label-searcher{
+   color: #515359;
+   font: normal normal medium Ubuntu;
+   width: max-content;
+   font-size: 0.7em;
+   font-weight: 500;
+   display: grid;
+}
+.list-attr-property{
+   list-style: none;
+   display: inline-flex;
+   font-size: 12px;
+   justify-content: space-around;
+}
+
+.li-attr-property{
+   padding: 0;
+   flex: 0 0 25%;
+   display: inline-flex;
+
+}
+.icon-property-pp{
+   width: 3vh;
+   background: transparent;
+   opacity: 1;
+   color: #515359;
+}
+.container .container-property{
+   margin-left: 2vh;
+   margin-right: 5vh;
+   margin-top: 5vh;
+   margin-bottom: 2vh;
+   background: #ffffff 0% 0% no-repeat padding-box;
+}
+.nav nav-pills{
+   list-style: none;
+}
+.property-information{
+   display: inline-block;
+   vertical-align: text-top;
+   display: inline-grid;
+   height: 225.46px;
+   max-height: 225.46px;
+   grid-template-rows: 3em 3em 4em 4em;
+}
+.property-title{
+   text-align: left;
+   margin-left: 3vh;
+   color: #012169;
+   font: normal normal normal 22px/22px Ubuntu;   
+   font-size: 12pt;
+   margin-top: 2%;
+   display: flex;
+}
+.property-description{
+   text-align: left;
+   align-items: center;
+   margin-left: 3vh;
+   font: normal normal normal 14px/22px Ubuntu;
+   letter-spacing: 0px;
+   color: #515359;
+   opacity: 1;
+   display: flex;
+}
+.li-property-description{
+   list-style: none;
+} 
+.property-prices-card{
+   margin-left: 4vh;
+   font: normal normal bold 18px/30px Ubuntu;
+   align-self: center;
+}
+.property-p-label{
+   flex: 0 0 25%;
+   margin-right: 1em;
+}
+.form-select-price-currency{
+   width: 6.5em;
+   height: 42px;
+   border-color: #63666A80;
+   background: white;
+   border-style: solid;
+   border-width: 1px;
+}
+.list-icons-general{
+   align-self: center;
+}
+.property-price{
+   font-size: 14px !important;
+   text-align: left;
+   font: normal normal bold 22px/30px Ubuntu;
+   color: #515359;
+   letter-spacing: 0px;
+   opacity: 1;
+   display: flex;
+}
+.property-price-bip{
+   margin-top: 0.5em;
+   display: flex;
+   color: #012169;
+   list-style: none;
+   font: normal normal normal Ubuntu;
+}
+.property-price-currency{
+   font-size: 14px !important;
+   text-align: left;
+   margin-left: 1%;
+   font: normal normal bold 22px/30px Ubuntu;
+   letter-spacing: 0px;
+   // color: #515359;
+   opacity: 1;
+   // margin-top: 1%;
+   display: flex;
+}
+.search-property{
+   color: #012169;
+   font: normal normal normal 2em/1em Ubuntu;
+   margin-top: 4%;
+   margin-bottom: 3%;
+   height: 56px;
+   display: flex;
+   align-items: center;
+}
+.bath-icon{
+   width:3vh; 
+   background: transparent;
+   opacity: 1;
+}
+.box-border-property{
+   border-radius: 5%;
+   box-shadow: 0 8px 6px -6px #00000029;
+   margin-top: 3%;
+   margin-block-end: 3%;
+}
+.btn-searcher{
+   border-color: #418fde !important;
+   color: #418FDE;
+   width: 11em;
+   height: 2.9em;
+   margin-top: 1em;
+   margin-left: 8px;
+}
+.btn .searcher-elements-btn{
+   margin-right: 2%;
+   color: #418FDE;
+   
+}
+.navbar.navbar-expand-lg.navbar-light.o_colored_level.o_cc.shadow-sm{
+   margin-top: 0%;
+   height: auto;
+   width: 100%;
+}
+.form-inline label{
+   margin-bottom: 2%;
+}
+.span-select{
+   color: #515359;
+   font: normal normal medium Ubuntu;
+   font-weight: 500;
+   display: flex;
+   font-size: 0.8em;
+   margin-bottom: 0.5em;
+}
+.span-select-li{
+   color: #515359;
+   font-weight: 400;
+   font-size: 0.8rem;
+   font-family: ubuntu;
+}
+.form-select{
+   width: 10.5em;
+   height: 42px;
+   border-color: #63666A80;
+   background: white;
+}
+.form-select-price{
+   width: 10.5em;
+   height: 42px;
+   border-color: #63666A80;
+   background: white;
+   border-style: solid;
+   border-width: 1px;
+}
+.cont-uni-searcher{
+   padding: 2px;
+   align-items: center;
+   max-width: max-content;
+}
+.cont-uni-searcher-currency{
+   padding: 2px;
+   align-items: center;
+   max-width: max-content;
+}
+@media (max-width:1200px) {
+   .form-control-pp{
+      width: 12.5em;
+   }
+   .btn-searcher{
+      width: 7em;
+   }
+   
+}
+@media (max-width:1000px)and(min-width:415px) {
+   .cont-uni-searcher-currency{
+      display: none;
+   }
+   .form-control-pp{
+      width: 29.5em;
+   }
+   .span-sort-property{
+      display: none;
+   }
+   .cont-uni-searcher{
+      max-width: max-content;
+      margin-top: 1.5vh;
+   }
+   .form-select{
+      width: 14.5em;
+   }
+   .form-select-price{
+      width: 14.5em;
+   }
+   .btn-searcher{
+      width: 23.5em;
+   }
+}
+@media (max-width:414px){
+   .cont-uni-searcher-currency{
+      display: none;
+   }
+   .span-sort-property{
+      display: none;
+   }
+   .search-property{
+      font-size: x-large;
+   }
+   .form-control-pp{
+      width: 24.5em;
+   }
+   .cont-uni-searcher{
+      max-width: max-content;
+      margin-top: 1.5vh;
+   }
+   .form-select{
+      width: 12em;
+   }
+   .form-select-price{
+      width: 12em;
+   }
+   .btn-searcher{
+      width: 19.5em;
+   }
+}
+.btn-cont-searcher{
+   display: flex;
+}
+.select{
+   border-color: #515359;
+   background: var(--unnamed-color-515359) 0% 0% no-repeat padding-box;
+   background: #515359 0% 0% no-repeat padding-box;
+   opacity: 0.5;
+}
+.products-pager{
+   margin-bottom: 5%;
+}
+.image-content-pp{
+   width: 100%;
+   height: 30vh;
+   overflow: hidden;
+}
+
+                                                // page product property
+
+.bx-info{
+   max-height: 35.3em;
+   background: #ECECEC;
+   justify-content: center;
+   align-items: center;
+}
+.form-label{
+   color: #515359;
+   font: normal normal normal 14px/30px Ubuntu;
+   margin-left: -2em;
+   height: 23px;
+   width: fit-content;
+}
+.container.container-property-pp{
+   max-width: 86%;
+}
+.type-property{
+   margin-top: 6%;
+
+}
+.search-property-pp{
+   color: #012169;
+   font: normal normal normal 40px/40px Ubuntu;
+   margin-top: 1%;
+   height: 22%;
+   font-size: xx-large;
+   height: auto;
+}
+   // box image 
+
+.col-md-12{
+   max-width: 820px;
+}
+.image_content{
+   max-height: 95%;
+   overflow: hidden;
+}
+.text-right{
+   text-align: right !important;
+}
+.col-12{
+   flex: 0 0 100%;
+   max-width: 75%;
+}
+.fa.rounded-empty-circle{
+   border-width: 0px;
+   border-radius: 0px;
+   color: #515359;
+}
+.fa.fa-facebook{
+   border-radius: 0px;
+   color: #012169;
+}
+.fa.fa-twitter{
+   border-radius: 0px;
+   color: #012169;
+}
+.fa.fa-whatsapp{
+   border-radius: 0px;
+   color: #012169;
+}
+
+    // container box more information
+
+.box-image-center{
+   max-height: 500px;
+}
+.label-more-information{
+   color:#012169;
+   text-align: center;
+   font: normal normal normal 19px/30px Ubuntu;
+   margin-top: 1em;
+   margin-bottom: 1em;
+}
+.col.md-4.box-information{
+   flex: 0 0 33.33333333%;
+   max-width: 33.33333333%;
+   max-height: 650px;
+   background: #ECECEC;
+}
+label.ipt-information{
+   color: #515359;
+   font: normal normal medium Ubuntu;
+   text-transform: uppercase;
+   opacity: 1;
+   width: 200px;
+}
+.btn-send-info{
+   font-size: 1.25rem;
+   line-height: 1.5;
+   border-radius: 0.3rem;
+   border-color: #418FDE;
+   color:  #418FDE;
+   margin-bottom: 5%;
+}
+.btn-schedule-appointment{
+   font-size: 1.25rem;
+   line-height: 1.5;
+   border-radius: 0.3rem;
+   border-color: #418FDE;
+   color:  #418FDE;
+   margin-left: 4em;
+}
+.cGcvT{
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   pointer-events: none;
+}
+.label-btn-wmi{
+   width: 200px;
+}
+
+   //   box information up
+
+.row.property-information-add{
+   margin-top: 5%;
+   text-align: -webkit-center;
+}
+.property-description-maps{
+   text-align: left;
+   margin-left: 1%;
+   font: normal normal normal 14px/30px Ubuntu;
+   letter-spacing: 0px;
+   color: #515359;
+   opacity: 1;
+   display: flex;
+   margin-top: 1vh;
+}
+.img-google-maps{
+   text-align: center;
+}
+.property-name-type{
+   color: #012169;
+   text-transform: uppercase;
+}
+h4.label-name-pt{
+   margin-left: 3.5vh;
+   margin-top: 4vh;
+}
+.img-fluid{
+   overflow: hidden;
+   max-width: 120%;
+   height: auto;
+}
+.image-map-content{
+   overflow: hidden;
+}
+.property-price-currency-pp{
+   margin-left: 6vh;
+   font: normal normal bold 22px/30px Ubuntu;
+   letter-spacing: 0px;
+   color:#012169;
+   opacity: 1;
+}
+.property-price-pp{
+   text-align: left;
+   margin-left: 1%;
+   font: normal normal bold 22px/30px Ubuntu;
+   letter-spacing: 0px;
+   color:#012169;
+   opacity: 1;
+}
+.icons-share-socmed{
+   margin-top: 1em;
+}
+.list-icon-pp-general{
+   margin-left: 4vh;
+}
+.box-information-advisor{
+   text-align: initial;
+   border: solid;
+   border-color: #ECECEC;
+}
+.list-icons-pp{
+   list-style: none;
+   display: grid;
+   padding-inline-start: 0;
+   grid-template-rows: 3em 3em 3em 3em;
+}
+.img-maps{
+   overflow: hidden;
+}
+.box-information-vs{
+   background: #ECECEC;
+   text-align: initial;
+}
+.image-name{
+   display: grid;
+   grid-template-columns: 30% 70%;
+}
+.inner-advisor{
+   display: grid;
+   grid-template-rows: 6em 12em 4.88em;
+   border: solid 20px;
+   border-color: #FFFFFF;
+}
+
+.inner-advisor-title{
+   padding-top: 8%;
+   margin-left: -2vh;
+
+}
+.inner-advisor-title h5{
+   color: #012169;
+}
+.inner-advisor-title h6{
+   font-size: 0.8rem;
+}
+
+.inner-advisor-info{
+   margin-top: 8%;
+   margin-bottom: 6%;
+   margin-left: 25%;
+}
+.inner-advisor-info h5{
+   color: #012169;
+}
+.inner-advisor-info h6{
+   font-size: 0.8rem;
+}
+.property-employee-contact{
+   align-self: center;
+   justify-self: center;
+   color: #012169;
+   margin-left: 3em;
+}
+.img-asesor{
+   display:block;
+   box-shadow: 0 0 0 1px #cccccc;
+   background-size: cover;
+   background-position: center center;
+   background-color: white;
+   border-radius: 50% !important;
+   width: 86px;
+   height: 86px;
+   overflow: hidden;
+
+}
+.span-sort-property{
+   text-align: right;
+   font: normal normal medium Ubuntu;
+   letter-spacing: 1.4px;
+   color: #515359;
+   text-transform: uppercase;
+   font-size: small;
+   opacity: 1;
+}
+.col-4.li-attr-property-pp{
+   display: flex;
+   margin-left: 3vh;
+   // height: 8.25vh;
+}
+.pp-txt-vs{
+   color: #515359;
+   font: normal normal normal 16px/36px Ubuntu;
+}
+.icon-property{
+   color: #515359;
+   width: 4vh;
+   background: transparent;
+   opacity: 1;
+   // height: 5vh;
+   margin-right: 2vh;
+}
+.icon-property-enviroment{
+   width: 9vh; 
+   height: 9vh;
+   background: transparent;
+   margin-left: 7em;
+   margin-top: 3em;
+}
+.txt-p-description{
+   text-align: left;
+   font: normal normal normal 16px/26px Ubuntu;
+   letter-spacing: 0px;
+   color: #515359;
+   opacity: 1;
+}
+.title-p-description{
+   color: #012169;
+   font: normal normal normal 22px/30px Ubuntu;
+   padding-top: 6vh;
+   padding-bottom: 2vh;
+}
+.title-p-add-info{
+   color: #012169;
+   font: normal normal normal 22px/30px Ubuntu;
+   padding-top: 6vh;
+   padding-bottom: 2vh;
+}
+.list-add-info{
+   padding: 0 ;
+   margin-left: 1.8em;
+}
+.add-info-property{
+   padding: 0;
+}
+.tag-add-info-pp{
+   color: #515359;
+   text-align: left;
+   font: normal normal normal 16px/33px Ubuntu;
+   letter-spacing: 0px;
+}
+.box-enviroment{
+   background: #ECECEC;
+}
+.span-description{
+   color: #515359;
+   margin-bottom: 2em;
+
+}
+.title-type-property{
+   text-align: left;
+   font: normal normal normal Ubuntu;
+   letter-spacing: 0px;
+   color: #012169;
+}
+.label-enviroment{
+   color: #012169;
+   margin-left: 4.5em;
+}
+.add-info-property-enviromet{
+   margin-top: 3em;
+}
+
+.sort-p{
+   margin-top: 14%;
+   float: right;
+   text-align: center;
+   display: inline;
+}
+.input-data-client{
+   flex-basis: auto;
+}
+.property-employee-data{
+   align-self: center;
+   color: #012169;
+   font-family: ubuntu;
+}

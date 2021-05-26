@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'base'), ('name', '=', 'res_partner_portal_public_rule')]" />
+        </function>
+        <value eval="{'noupdate': False}" />
+    </function>
+
+    <record id="base.res_partner_portal_public_rule" model="ir.rule">
+        <field name="active">False</field>
+    </record>
+
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'base'), ('name', '=', 'res_partner_portal_public_rule')]" />
+        </function>
+        <value eval="{'noupdate': True}" />
+    </function>
+
+    <!-- <record id="property_management_public" model="ir.rule">
+        <field name="name">property public</field>
+        <field name="model_id" ref="property_management.model_property_management_property"/>
+        <field name="domain_force">[('website_published', '=', True)]</field>
+        <field eval="[(4, ref('base.group_public')), (4, ref('base.group_portal'))]" name="groups"/>
+        <field eval="True" name="perm_read"/>
+        <field eval="False" name="perm_write"/>
+        <field eval="False" name="perm_create"/>
+        <field eval="False" name="perm_unlink"/>
+    </record> -->
+</odoo>

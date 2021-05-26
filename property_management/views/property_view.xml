@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Árbol -->
+    <record model="ir.ui.view" id="property_tree_view">
+        <field name="name">property.tree</field>
+        <field name="model">property.management.property</field>
+        <field name="arch" type="xml">
+            <tree string="Lista de Propiedades">
+                <field name="name" />
+                <field name="type_id" />
+                <field name="total_area" />
+                <field name="builded_surface" />
+                <field name="city" string="Región" />
+                <field name="state_id" string="Comuna" />
+                <field name="state_prop_id" />
+                <field name="sale_price" />
+                <field name="sale_price_currency" />
+                <field name="lease_price" />
+                <field name="lease_price_currency" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- Kanban -->
+    <record model="ir.ui.view" id="property_kanban_view">
+        <field name="name">property.kanban</field>
+        <field name="model">property.management.property</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state_prop_id" class="o_kanban_small_column o_opportunity_kanban" group_edit="true" group_delete="true" group_create="true" >
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div>
+                                    <strong class="o_kanban_record_title"><field name="name"/></strong>
+                                </div>
+                                <div class="o_kanban_record_subtitle">
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <field name="type_id"/>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <field name="real_estate_agent" widget="many2one_avatar_employee"/>
+                                        </div>
+                                    </div>
+                                    <t t-if="record.street_kanban_report">
+                                        <field name="street_kanban_report"/>
+                                    </t>
+                                    <t t-if="record.street2_kanban_report">
+                                        <field name="street2_kanban_report"/>
+                                    </t>
+                                    <t t-if="record.city.raw_value">
+                                        <field name="city"/>
+                                    </t>    
+                                </div>
+                                <field name="real_estate_lease" invisible="1"/>
+                                <div attrs="{'invisible': [('real_estate_lease', '=', False)]}">
+                                    <span>Arriendo  <field name="lease_price_currency"/> <field name="lease_price"/></span>
+                                </div>
+                                <field name="real_estate_sale" invisible="1"/>
+                                <div attrs="{'invisible': [('real_estate_sale', '=', False)]}">
+                                    <span>Venta  <field name="sale_price_currency"/> <field name="sale_price"/></span>
+                                </div>
+                            </div>
+                            <div class="oe_clear"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Formulario -->
+    <record model="ir.ui.view" id="property_form_view">
+        <field name="name">property.form</field>
+        <field name="model">property.management.property</field>
+        <field name="arch" type="xml">
+            <form string="Formulario" class="o_lead_opportunity_form">
+                <header>
+                    <field name="state_prop_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}" />
+                </header>
+                <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_128&quot;}" />
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Nombre" required="1" />
+                        </h1>
+                        <label for="id"/>
+                        <field name="id"/>
+                    </div>
+                        <group col="4">
+                            <field name="type_id" required="1" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                            <field name="real_estate_agent" required="1" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                            <field name="partner_id" required="1"/>
+                            <field name="team_id" required="1" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                        </group>
+                    <group string="Tipo de Operación">
+                        <label for="real_estate_lease" string="Arriendo"/>
+                        <div>
+                            <field name="real_estate_lease"/>
+                            &#x2063; &#x2063;
+                            <field name="lease_price" 
+                                class="oe_inline" 
+                                style="width: 12% !important;" 
+                                attrs="{'invisible': [('real_estate_lease', '=', False)]}"
+                            />
+                            &#x2063; &#x2063;
+                            <field name="lease_price_currency" 
+                                options="{'no_create_edit': True, 'no_open':True}"  
+                                nolabel="1" 
+                                style="width: 8% !important;" 
+                                class="oe_inline" 
+                                attrs="{'invisible': [('real_estate_lease', '=', False)]}"
+                            />
+                        </div>
+                        <label for="real_estate_sale" string="Venta"/>
+                        <div>
+                            <field name="real_estate_sale"/>
+                            &#x2063; &#x2063;
+                            <field name="sale_price"
+                                class="oe_inline" 
+                                style="width: 12% !important;" 
+                                attrs="{'invisible': [('real_estate_sale', '=', False)]}"
+                            />
+                            &#x2063; &#x2063;
+                            <field name="sale_price_currency" 
+                                options="{'no_create_edit': True, 'no_open':True}"  
+                                nolabel="1"
+                                style="width: 8% !important;" 
+                                class="oe_inline"
+                                attrs="{'invisible': [('real_estate_sale', '=', False)]}" 
+                            />
+                        </div>
+                    </group>
+                    <notebook colspan="4">
+                        <page string="General" autofocus="autofocus">
+                            <group>
+                                <group>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <group>
+                                                    <label for="street" string="Dirección" />
+                                                    <div>
+                                                        <div class="o_address_format" name="div_address">
+                                                            <field name="street" placeholder="Calle..." class="o_address_street"/>
+                                                            <field name="street2" placeholder="Datos adicionales de Dirección y Ciudad" class="o_address_street"/>
+                                                            <field name="city_id" placeholder="Comuna" class="o_address_city" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}" context="{'state_id': state_id, 'default_state_id': state_id}"/>
+                                                            <field name="city" placeholder="Comuna" class="o_address_city" invisible="1"/>
+                                                            <field name="state_id" class="o_address_state" placeholder="Región" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>                                                            <field name="zip" placeholder="C.P." class="o_address_zip"/>
+                                                            <field name="country_id" placeholder="País" class="o_address_country" options="{'no_open': True, 'no_create': True}"/>                                                        </div>
+                                                    </div>
+                                                    <label for="property_coordenada" string="Coordenadas Mapa" />
+                                                    <div>
+                                                        <field name="property_coordenada" placeholder="Coordenadas"/>
+                                                        <field name="property_coordenada_lat" invisible="1" force_save="1"/>
+                                                        <field name="property_coordenada_lng" invisible="1" force_save="1"/>
+                                                    </div>
+                                                    <label for="zoom" string="Zoom"/>
+                                                    <div>    
+                                                        <field name="zoom" placeholder="Zoom Mapa"/>                                                                             
+                                                    </div>
+                                                </group>
+                                            </div>
+                                            <div class="col-12">
+                                                <group>
+                                                    <div>
+                                                        <field name="property_maps" readonly="1" force_save="1" />
+                                                    </div>
+                                                </group>
+                                            </div>
+                                        </div>
+                                    </div>        
+                                </group>
+                                <group>
+                                    <field name="total_area" />
+                                    <field name="builded_surface" />
+                                    <field name="bedroom_quantity"  />
+                                    <field name="dependencies"  />
+                                    <field name="cellar"  />
+                                    <field name="parking"  />
+                                    <field name="amb_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                                    <field name="orientation_id" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                                    <field name="tag_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Comunidad">
+                            <group>
+                                <group>
+                                    <field name="community_name"  />
+                                    <field name="construction_company_id" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}" domain="[('construction_company', '=', True)]" />                                    <field name="floor_quantity"  />
+                                    <field name="dep_x_floor"  />
+                                    <field name="num_floor"  />
+                                    <field name="elevator"  />
+                                    <field name="amenities" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                                    <field name="restrictions" widget="many2many_tags" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                                </group>
+                                <group>
+                                    <field name="cons_year" />
+                                    <field name="num_rol" placeholder="XXXXX-XXXXX" />
+
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Financiera">
+                            <group>
+                                <group>
+                                    <label for="common_expenses"/>
+                                    <div>
+                                        <field name="common_expenses" class="oe_inline" style="width: 30.835% !important;" />
+                                            &#x2063; &#x2063;
+                                        <field name="common_expenses_currency" options="{'no_create_edit': True, 'no_open':True}"  nolabel="1" style="width: 20.55% !important;" class="oe_inline" />
+                                    </div>
+                                    <label for="contributions"/>
+                                    <div>
+                                        <field name="contributions" class="oe_inline" style="width: 30.835% !important;" />
+                                            &#x2063; &#x2063;
+                                        <field name="contributions_currency" options="{'no_create_edit': True, 'no_open':True}"  nolabel="1" style="width: 20.55% !important;" class="oe_inline" />
+                                    </div>
+                                    <label for="tax_assessment"/>
+                                    <div>
+                                        <field name="tax_assessment" class="oe_inline" style="width: 30.835% !important;" />
+                                            &#x2063; &#x2063;
+                                        <field name="tax_assessment_currency" options="{'no_create_edit': True, 'no_open':True}"  nolabel="1" style="width: 20.55% !important;" class="oe_inline" />
+                                    </div>
+                                    <label for="commercial_appraisal"/>
+                                    <div>
+                                        <field name="commercial_appraisal" class="oe_inline" style="width: 30.835% !important;" />
+                                            &#x2063; &#x2063;
+                                        <field name="commercial_appraisal_currency" options="{'no_create_edit': True, 'no_open':True}"  nolabel="1" style="width: 20.55% !important;" class="oe_inline" />
+                                    </div>
+                                </group>
+                                <group></group>
+                            </group>
+                        </page>
+                        <page string="Captación">
+                            <group>
+                                <group>
+                                    <field name="exclusiveness" string="Exclusividad" />
+                                    <field name="expiration_date"/>
+
+                                    <field name="compute_price_lease" invisible="1"/>
+                                    <label for="compute_price_lease" string="Comisión Arriendo" attrs="{'invisible': [('real_estate_lease', '=', False)]}"/>
+                                    <div attrs="{'invisible': [('real_estate_lease', '=', False)]}">
+                                        <span attrs="{'invisible': [('compute_price_percentage', '=', True)]}">
+                                            <field name="compute_price_fixed"/>
+                                        </span>
+                                        <label for="compute_price_fixed" string="Precio Fijo"/>
+                                        &#x2063;
+                                        <span attrs="{'invisible': ['|',('compute_price_percentage', '=', True),('compute_price_fixed', '=', False)]}">
+                                            <field name="agreed_commission_fixed"
+                                            class="oe_inline"
+                                            style="width: 30.835% !important;"
+                                        />
+                                        </span>
+                                        &#x2063; &#x2063;
+                                        <field name="agreed_commission_currency"
+                                            nolabel="0"
+                                            class="oe_inline"
+                                            style="width: 20.556% !important;"
+                                            attrs="{'invisible': ['|',('compute_price_percentage', '=', True),('compute_price_fixed', '=', False)]}"
+                                            options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"
+                                        />
+                                        <br/>
+                                        <span attrs="{'invisible': [('compute_price_fixed', '=', True)]}">
+                                            <field name="compute_price_percentage"/>
+                                        </span>
+                                        <label for="compute_price_percentage" string="Porcentaje"/>
+                                        &#x2063;
+                                        <span attrs="{'invisible': ['|',('compute_price_fixed', '=', True),('compute_price_percentage', '=', False)]}">
+                                            <field name="agreed_commission_percent"
+                                            class="oe_inline"
+                                            style="width: 30.835% !important;"
+                                        />&amp;nbsp;%</span>
+                                    </div>
+
+                                    <field name="compute_price_sale" invisible="1"/>
+                                    <label for="compute_price_sale" string="Comisión Venta" attrs="{'invisible': [('real_estate_sale', '=', False)]}"/>
+                                    <div attrs="{'invisible': [('real_estate_sale', '=', False)]}">
+                                        <span attrs="{'invisible': [('compute_price_percentage_sale', '=', True)]}">
+                                            <field name="compute_price_fixed_sale"/>
+                                        </span>
+                                        <label for="compute_price_fixed_sale" string="Precio Fijo"/>
+                                        &#x2063;
+                                        <span attrs="{'invisible': ['|',('compute_price_percentage_sale', '=', True),('compute_price_fixed_sale', '=', False)]}">
+                                            <field name="agreed_commission_fixed_sale"
+                                            class="oe_inline"
+                                            style="width: 30.835% !important;"
+                                        />
+                                        </span>
+                                        &#x2063; &#x2063;
+                                        <field name="agreed_commission_currency_sale"
+                                            nolabel="0"
+                                            class="oe_inline"
+                                            style="width: 20.556% !important;"
+                                            attrs="{'invisible': ['|',('compute_price_percentage_sale', '=', True),('compute_price_fixed_sale', '=', False)]}"
+                                            options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"
+                                        />
+                                        <br/>
+                                        <span attrs="{'invisible': [('compute_price_fixed_sale', '=', True)]}">
+                                            <field name="compute_price_percentage_sale"/>
+                                        </span>
+                                        <label for="compute_price_percentage_sale" string="Porcentaje"/>
+                                        &#x2063;
+                                        <span attrs="{'invisible': ['|',('compute_price_fixed_sale', '=', True),('compute_price_percentage_sale', '=', False)]}">
+                                            <field name="agreed_commission_percent_sale"
+                                            class="oe_inline"
+                                            style="width: 30.835% !important;"
+                                        />&amp;nbsp;%</span>
+                                    </div>
+
+                                    <field name="visiting_hours"/>
+                                    <field name="sign" string="Letrero"/>
+                                    <field name="key"/>
+                                </group>
+                                <group>
+                                    <field name="origin_name" attrs="{'invisible': True}"/>
+                                    <field name="origin_property" string="Origen" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                                    <field name="broker" attrs="{'invisible':[('origin_name', '!=', 'Externo')]}" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>
+                                    <field name="employee" attrs="{'invisible':[('origin_name', '!=', 'Empleado')]}" options="{'no_create': True, 'no_create_edit': True, 'no_open':True}"/>                               
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Media">
+                            <group>
+                                <field name="virtual_tour" widget="url" />
+                                <field name="video" widget="url" />
+                            </group>
+                            <group string="Fotografias">
+                                <field name="image_ids" mode="kanban" class="o_website_sale_image_list" default_group_by="columns" options="{'create_text':'Agregar Foto'}" nolabel="1"/>
+                            </group>                                
+                        </page>
+                        <page string="Publicación">
+                            <group>
+                                <field name="head"/>
+                                <field name="description"/>
+                            </group>
+                        </page>
+                        <page string="Documentación">
+                            <field name="attachments" nolabel="1">
+                                <tree editable="1" delete="1">
+                                    <field name="name" />
+                                    <field name="attachments" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field
+                        name="message_ids"
+                        widget="mail_thread"
+                        options="{'post_refresh': 'recipients'}"
+                    />
+                </div>
+            </form>
+        </field> 
+    </record>
+
+    <record id="property_search_view" model="ir.ui.view">
+        <field name="model">property.management.property</field>
+        <field name="arch" type="xml">
+            <search string="Packaging Type">
+                <field name="name" string="Nombre"/>
+                <field name="type_id" string="Tipo de Propiedad"/>
+                <field name="real_estate_agent" string="Agente"/>
+                <field name="team_id" string="Sucursal"/>
+                <field name="street" string="Calle"/>
+                <field name="city_id" string="Comuna"/>
+                <field name="state_id" string="Región"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción -->
+    <record model="ir.actions.act_window" id="property_management_property">
+        <field name="name">Propiedades</field>
+        <field name="res_model">property.management.property</field>
+        <field name="view_mode">kanban,tree,search,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Acá se listan las propiedades.</p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem
+        id="main_property_management_menu"
+        name="Propiedades"
+    />
+
+    <menuitem
+        id="property_menu"
+        name="Propiedades"
+        parent="main_property_management_menu"
+        action="property_management_property"
+        sequence="1"
+    />
+
+    <menuitem
+        id="entidades_menu"
+        name="Entidades"
+        parent="main_property_management_menu"
+        sequence="2"
+    />
+
+    <menuitem
+        id="amenities_menu"
+        name="Amenities"
+        parent="entidades_menu"
+        action="property_management_amenities"
+        sequence="1"
+    />
+
+    <menuitem
+        id="tag_menu"
+        name="Características"
+        parent="entidades_menu"
+        action="property_management_tag"
+        sequence="2"
+    />
+
+    <menuitem
+        id="amb_menu"
+        name="Espacios"
+        parent="entidades_menu"
+        action="property_management_amb"
+        sequence="3"
+    />
+
+    <menuitem
+        id="orientation_menu"
+        name="Orientaciones"
+        parent="entidades_menu"
+        action="property_management_orientation"
+        sequence="4"
+    />
+
+    <menuitem
+        id="origin_menu"
+        name="Orígenes"
+        parent="entidades_menu"
+        action="property_management_origen"
+        sequence="5"
+    />
+
+    <menuitem
+        id="restrictions_menu"
+        name="Restricciones"
+        parent="entidades_menu"
+        action="property_management_restrictions"
+        sequence="6"
+    />
+
+    <menuitem
+        id="type_menu"
+        name="Tipos de Propiedades"
+        parent="entidades_menu"
+        action="property_management_type"
+        sequence="7"
+    />
+
+    <menuitem
+        id="crm_property_menu"
+        name="Propiedades"
+        parent="crm.crm_menu_root"
+        sequence="99"
+        groups="sales_team.group_sale_manager"
+        action="property_management_property"
+    />
+</odoo>
