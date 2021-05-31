@@ -10,51 +10,86 @@
     <template id="top_search" name="top search">
         <div class="cont-nav">
             <nav class="navbar navbar-expand-lg navbar-light fluid navbar-searcher">
-                <div class="container searcher-cont" id="menu">
-                    <form>
-                        <div class="row searcher-nav row-cols-1 row-cols-xs-6 row-cols-sm-4 row-cols-md-4">
-                            <div class="col cont-uni-searcher">
-                                <span class="span-select">OPERACIÓN</span>
-                                <select aria-label="OPERACION" class="form-select span-select-li" id="real_state_op" name="real_state_op">
-                                    <t t-as="operation" t-foreach="operations">
-                                        <option class="span-select-li" t-att-selected="operation[0] == get_vals['real_state_op'] if 'real_state_op' in get_vals else False" t-att-value="operation[0]" t-esc="operation[1]"/>
-                                    </t>
-                                </select>
-                            </div>
-                            <div class="col cont-uni-searcher">
-                                <span class="span-select">PROPIEDAD</span>
-                                <select aria-label="TIPO DE PROPIEDAD" class="form-select span-select-li" id="property_type_id" name="property_type_id">
-                                    <option value="" class="span-select-li">Todas</option>
-                                    <t t-as="property_type" t-foreach="property_type_ids">
-                                        <option class="span-select-li" t-att-selected="str(property_type.id) ==  get_vals['property_type_id'] if 'property_type_id' in get_vals else False" t-att-value="property_type.id" t-field="property_type.name"/>
-                                    </t>
-                                </select>
-                            </div>
-                            <div class="col cont-uni-searcher-currency">
-                                <span class="span-select">MONEDA</span>
-                                <select aria-label="MONEDA" class="form-select-price-currency span-select-li" id="currency" name="currency">
-                                    <t t-as="currency_id" t-foreach="currency_ids">
-                                        <option class="span-select-li" t-att-selected="True and currency and currency_id.id == currency.id or False" t-att-value="currency_id.name" t-field="currency_id.symbol"/>
-                                        <!-- <option class="span-select-li" t-att-selected="str(currency_id.name) ==  get_vals['currency'] if 'currency' in get_vals else False" t-att-value="currency_id.name" t-field="currency_id.symbol"/> -->
-                                    </t>
-                                </select>
-                            </div>
-                            <div class="col cont-uni-searcher">
-                                <span class="span-select">PRECIO MÍN.</span>
-                                <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
-                            </div>
-                            <div class="col cont-uni-searcher">
-                                <span class="span-select">PRECIO MÁX.</span>
-                                <input class="form-select-price span-select-li" id="amount_max" name="amount_max" placeholder="  -" t-att-value="get_vals['amount_max'] if  'amount_max' in get_vals else ''"/>
-                            </div>
-                            <div class="col cont-uni-searcher">
-                                <label class="form-label-searcher">COMUNA O UBICACIÓN</label>
-                                <div class="btn-group btn-cont-searcher " data-toggle="button">
-                                    <input class="form-control-pp span-select-li" id="address" name="address" placeholder="  La Reina, RM, Chile" t-att-value="get_vals['address'] if  'address' in get_vals else ''"/>
+                <div class="searcher-cont" id="menu">
+                    <form class="row" style="justify-content: center">
+                        <div class="accordion" id="accordion" >
+                            <div class="row searcher-nav">
+                                <div class="cont-uni-searcher">
+                                    <span class="span-select">OPERACIÓN</span>
+                                    <select aria-label="OPERACION" class="form-select span-select-li" id="real_state_op" name="real_state_op">
+                                        <t t-as="operation" t-foreach="operations">
+                                            <option class="span-select-li" t-att-selected="operation[0] == get_vals['real_state_op'] if 'real_state_op' in get_vals else False" t-att-value="operation[0]" t-esc="operation[1]"/>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="cont-uni-searcher">
+                                    <span class="span-select">PROPIEDAD</span>
+                                    <select aria-label="TIPO DE PROPIEDAD" class="form-select span-select-li" id="property_type_id" name="property_type_id">
+                                        <option value="" class="span-select-li">Todas</option>
+                                        <t t-as="property_type" t-foreach="property_type_ids">
+                                            <option class="span-select-li" t-att-selected="str(property_type.id) ==  get_vals['property_type_id'] if 'property_type_id' in get_vals else False" t-att-value="property_type.id" t-field="property_type.name"/>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="cont-uni-searcher keyword">
+                                    <label class="form-label-searcher">COMUNA O PALABRA CLAVE</label>
+                                    <div class="btn-group btn-cont-searcher " data-toggle="button">
+                                        <input class="form-control-pp span-select-li" id="address" name="address" placeholder="  La Reina, RM, Chile" t-att-value="get_vals['address'] if  'address' in get_vals else ''"/>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col cont-uni-searcher">      
-                                <button class="btn-searcher btn btn-outline-secondary" type="submit">
+                            <div class="accordion-content " id="property_accordion_navbar">
+                                <div class="cont-uni-searcher price-min">
+                                    <span class="span-select">PRECIO MÍN.</span>
+                                    <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                </div>
+                                <div class="cont-uni-searcher price-max">
+                                    <span class="span-select">PRECIO MÁX.</span>
+                                    <input class="form-select-price span-select-li" id="amount_max" name="amount_max" placeholder="  -" t-att-value="get_vals['amount_max'] if  'amount_max' in get_vals else ''"/>
+                                </div>
+                                <div class="cont-uni-searcher-currency currency">
+                                    <span class="span-select">MONEDA</span>
+                                    <select aria-label="MONEDA" class="form-select-price-currency span-select-li" id="currency" name="currency">
+                                        <t t-as="currency_id" t-foreach="currency_ids">
+                                            <option class="span-select-li" t-att-selected="True and currency and currency_id.id == currency.id or False" t-att-value="currency_id.name" t-field="currency_id.symbol"/>
+                                            <!-- <option class="span-select-li" t-att-selected="str(currency_id.name) ==  get_vals['currency'] if 'currency' in get_vals else False" t-att-value="currency_id.name" t-field="currency_id.symbol"/> -->
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="cont-uni-searcher room-min">
+                                    <span class="span-select">DORMITORIO MÍN.</span>
+                                    <input class="form-select-room span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                </div>
+                                <div class="cont-uni-searcher room-max">
+                                    <span class="span-select">DORMITORIO MÁX.</span>
+                                    <input class="form-select-room span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                </div>
+                                <div class="cont-uni-searcher bath-min">
+                                    <span class="span-select">BAÑOS MÍN.</span>
+                                    <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                </div>
+                                <div class="cont-uni-searcher bath-max">
+                                    <span class="span-select">BAÑOS MÁX.</span>
+                                    <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                </div>
+                                <div class="cont-uni-searcher sup-min">
+                                    <span class="span-select">SUPERFICIE MÍN.</span>
+                                    <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                </div>
+                                <div class="cont-uni-searcher sup-max">
+                                    <span class="span-select">SUPERFICIE MÁX.</span>
+                                    <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                </div>
+                            </div>
+                            <a class="accordion-toggle">
+                                <span class="span-search-av" id="property_search_down"> BUSQUEDA AVANZADA </span>
+                                <span class="span-search-av" id="property_search_up"> BUSQUEDA AVANZADA </span>
+                                <i class="fa fa-caret-up property-search-button-up" id="property_search_button_up"></i>
+                                <i class="fa fa-caret-down property-search-button-down" id="property_search_button_down"></i>
+                            </a>
+                        </div>
+                            <div class="cont-uni-searcher">      
+                                <button class="btn-searcher btn btn-outline-primary" type="submit">
                                 <svg class="bi bi-search searcher-elements-btn" fill="currentColor" height="16" viewBox="0 0 16 16" width="16"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -62,11 +97,11 @@
                                 <span class="searcher-elements-btn">APLICAR</span>
                                 </button>
                             </div>
-                        </div>
                     </form>
                 </div>
             </nav>
         </div>
+        <script type="text/javascript" src="/property_management/static/src/js/searcher_menu.js"></script>
     </template>
 
     <template id="property_item" name="property item">
@@ -106,21 +141,21 @@
                     </t>
                 </div>
                 <div class="container-fluid list-icons-general">
-                    <ol class="list-attr-property col-md-12">
-                        <li class="col-2 li-attr-property bed-li">
+                    <ol class="list-attr-property">
+                        <li class="li-attr-property bed-li">
                             <img alt="Habitaciones" src="/property_management/static/src/img/bed.svg" class="icon-property-pp"/>
                             <span class="p-icon-txt" t-field="property.bedroom_quantity"/>
                         </li>
-                        <li class="col-2 li-attr-property bat-li">
+                        <li class="li-attr-property bat-li">
                             <img alt="Baños" src="/property_management/static/src/img/bath.svg" class="icon-property-pp"/>
                             <span class="p-icon-txt" t-field="property.dependencies"/>
                         </li>
-                        <li class="col-4 li-attr-property">
+                        <li class="li-attr-property">
                             <img alt="Medidas C" src="/property_management/static/src/img/ruler.svg" class="icon-property-pp"/>
                             <span class="p-icon-txt" t-field="property.builded_surface"/>
                             <span class="p-icon-txt">m2</span>
                         </li>
-                        <li class="col-4 li-attr-property">
+                        <li class="li-attr-property">
                             <img alt="Medidas T" src="/property_management/static/src/img/beach-umbrella-.svg" class="icon-property-pp"/>
                             <span class="p-icon-txt" t-field="property.total_area"/>
                             <span class="p-icon-txt">m2</span>
@@ -381,7 +416,74 @@
                                         </h6>
                                     </div>
                                     <div class="">    
-                                        <a href="#" role="button" class="btn btn-outline-primary btn-lg s_website_form_send o_default_snippet_text btn-schedule-appointment">AGENDAR CITA</a>
+                                        <!-- <a role="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-outline-primary btn-lg s_website_form_send o_default_snippet_text btn-schedule-appointment">AGENDAR CITA</a> -->
+                                        <button type="button" class="btn btn-outline-primary btn-lg s_website_form_send o_default_snippet_text btn-schedule-appointment" data-toggle="modal" data-target="#exampleModalCenter">
+                                            AGENDAR CITA
+                                        </button>
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                          <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <div class="modal-sup">
+                                                    <label for="" class="date">Agendar Cita</label>
+                                                    <label class="property-name property"><t t-esc="property.head"/></label>
+                                                    <button type="button" class="close butclo" data-dismiss="modal" aria-label="Close">
+                                                        <img src="/property_management/static/src/img/cerrar.svg" alt="cerrar" style="width: 0.7em" class=""/>
+                                                    </button>
+                                                </div>
+                                              </div>
+                                              <div class="modal-body">
+                                                <div class="modal-date">
+                                                    <div class="cont-uni-modal">
+                                                    <label class="form-label-modal">NOMBRE</label>
+                                                    <div class="btn-group btn-cont-searcher " >
+                                                        <input class="form-control-modal span-select-li" id="" name="" placeholder=" Nombre" />
+                                                    </div>
+                                                    </div>
+                                                    <div class="cont-uni-modal">
+                                                        <label class="form-label-modal">APELLIDO</label>
+                                                        <div class="btn-group btn-cont-searcher " >
+                                                            <input class="form-control-modal span-select-li" id="" name="" placeholder=" Apellido" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-uni-modal">
+                                                        <label class="form-label-modal">CORREO</label>
+                                                        <div class="btn-group btn-cont-searcher " >
+                                                            <input class="form-control-modal span-select-li" id="" name="" placeholder=" Alberto@Email.com" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-uni-modal">
+                                                        <label class="form-label-modal">TELEFONO</label>
+                                                        <div class="btn-group btn-cont-searcher " >
+                                                            <input class="form-control-modal span-select-li" id="" name="" placeholder=" 569 XXXX XXXX" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-uni-modal">
+                                                        <label class="form-label-modal">ELIGE DÍA</label>
+                                                        <div class="btn-group btn-cont-searcher " >
+                                                            <input type="date" class="form-control-modal span-select-li" id="" name="" placeholder=" -" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="cont-uni-modal">
+                                                        <label class="form-label-modal">ELIGE HORA</label>
+                                                        <div class="btn-group btn-cont-searcher " >
+                                                            <input type="time" class="form-control-modal span-select-li" id="" name="" placeholder=" -" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <div class="form-group col-6 s_website_form_submit" data-name="Submit Button">
+                                                    <div class="s_website_form_label label-btn-wmi"/>
+                                                    <a href="#" role="button" class="btn btn-outline-primary btn-lg btn-block s_website_form_send o_default_snippet_text btn-send-info">
+                                                    <span class="send-msg">ENVIAR MENSAJE</span>
+                                                    </a>
+                                                    <span id="s_website_form_result"/>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
