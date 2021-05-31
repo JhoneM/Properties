@@ -26,16 +26,25 @@
    border-color: #ECECEC;
 }
 .searcher-nav{
-   display: inline-flex;
+   display: flex;
    justify-content: center;
    width: 100%;
    min-width: 320px;
    margin: 0;
+   margin-bottom: 0.65em;
 }
 .form-control-pp{
    height: 3.2em;
-   width: 16.5em;
+   width: 35.5em;
    border-radius: 0%;
+   border-color: #63666A80;
+   background: white;
+   border-style: solid;
+   border-width: 1px;
+}
+.form-select-room{
+   width: 11.10em;
+   height: 42px;
    border-color: #63666A80;
    background: white;
    border-style: solid;
@@ -46,14 +55,50 @@
    width: 100%;
    padding: 0;
 }
+.accordion-content{
+   overflow: hidden;
+   max-height: 0em;
+   grid-row-gap: 0.5em;
+   display: grid;
+   grid-template-columns: 0.1fr 0.1fr 1.1fr ;
+   grid-auto-rows: 1fr 1fr;
+   grid-template-areas:
+   "price-min price-max currency"
+   "bath-min bath-max- sup-min";
+   justify-content: center;
+   transition: all 0.8s;  
+}
+.accordion-toggle{
+   display: grid; 
+   justify-content: center; 
+   margin-top: 0.5em;
+}
+.property-search-button-up{
+   display: none;
+   color: #515359; 
+   justify-self: center;
+}
+.property-search-button-down{
+   display: flex;
+   color: #515359; 
+   justify-self: center;
+}
+.span-search-av{
+   color: #515359;
+   font-size: small;
+}
+.span-search-av:hover{
+   text-decoration: underline;
+   color: black;
+}
 .searcher-cont{
-   margin-top: 2em;
-   margin-bottom: 2em ;
+   margin-top: 1em;
+   justify-content: center;
 }
 .p-icon-txt{
    color: #515359;
-   font-size: 1.7vh;
-   margin-left: 0.2vh;
+   margin-left: 0.5em;
+   align-self: center;
 }
 .mb-3, .my-3{
    margin-bottom: 0rem !important;
@@ -70,9 +115,11 @@
 }
 .list-attr-property{
    list-style: none;
-   display: inline-flex;
+   display: grid;
+   grid-template-columns: 0.6fr 0.6fr 1fr 1fr;
    font-size: 12px;
    justify-content: space-around;
+   padding-inline-start: 20px;
 }
 
 .li-attr-property{
@@ -82,7 +129,7 @@
 
 }
 .icon-property-pp{
-   width: 3vh;
+   width: 2.5em;
    background: transparent;
    opacity: 1;
    color: #515359;
@@ -133,11 +180,11 @@
    align-self: center;
 }
 .property-p-label{
-   flex: 0 0 25%;
+   flex: 0 0 30%;
    margin-right: 1em;
 }
 .form-select-price-currency{
-   width: 6.5em;
+   width: 11.10em;
    height: 42px;
    border-color: #63666A80;
    background: white;
@@ -174,6 +221,7 @@
    // margin-top: 1%;
    display: flex;
 }
+
 .search-property{
    color: #012169;
    font: normal normal normal 2em/1em Ubuntu;
@@ -230,13 +278,13 @@
    font-family: ubuntu;
 }
 .form-select{
-   width: 10.5em;
+   width: 17em;
    height: 42px;
    border-color: #63666A80;
    background: white;
 }
 .form-select-price{
-   width: 10.5em;
+   width: 17em;
    height: 42px;
    border-color: #63666A80;
    background: white;
@@ -244,51 +292,134 @@
    border-width: 1px;
 }
 .cont-uni-searcher{
-   padding: 2px;
+   padding-left: 1em;
    align-items: center;
-   max-width: max-content;
 }
 .cont-uni-searcher-currency{
    padding: 2px;
    align-items: center;
    max-width: max-content;
+   padding-left: 1em;
+   grid-area: currency;
 }
-@media (max-width:1200px) {
-   .form-control-pp{
-      width: 12.5em;
-   }
-   .btn-searcher{
-      width: 7em;
-   }
-   
+.room-min{
+   grid-area: currency;
+   margin-left: 10em;
 }
-@media (max-width:1000px)and(min-width:415px) {
-   .cont-uni-searcher-currency{
-      display: none;
-   }
-   .form-control-pp{
-      width: 29.5em;
-   }
+.room-max{
+   grid-area: currency;
+   margin-left: 19.5em;
+}
+.sup-max{
+   margin-left: 14.5em;
+   grid-area: sup-min;
+}
+.sup-min{
+   grid-area: sup-min;
+}
+#property_search_up{
+   cursor: pointer;
+   display: none;
+}
+#property_search_down{
+   cursor: pointer;
+}
+@media (max-width:990px)and(min-width:630px) {
    .span-sort-property{
       display: none;
-   }
-   .cont-uni-searcher{
-      max-width: max-content;
-      margin-top: 1.5vh;
-   }
-   .form-select{
-      width: 14.5em;
    }
    .form-select-price{
       width: 14.5em;
    }
+   .form-select{
+      width: 22em;
+   }
+   .form-control-pp{
+      width: 45.5em;
+   }
+   .form-select-price-currency{
+      width: 14.5em;
+   }
+   .form-select-room{
+      width: 14.5em;
+   }
+   .keyword{
+      margin-top: 1.5em;
+   }
    .btn-searcher{
       width: 23.5em;
    }
-}
-@media (max-width:414px){
+   .accordion-content{
+      grid-template-columns: 0.1fr 0.1fr 0.1fr;
+      grid-template-rows: 0.1fr 0.1fr 0.1fr;
+      grid-template-areas:
+        "price-min price-max currency"
+        "room-min room-max bath-min"
+        "bath-max sup-min sup-max";
+   }
    .cont-uni-searcher-currency{
-      display: none;
+      grid-area: currency;
+   }
+   .price-max{
+      grid-area: price-max;
+      margin-left: 0;
+   }
+   .room-min{
+      margin-left: 0;
+      grid-area: room-min;
+   }
+   .room-max{
+      grid-area: room-max;
+      margin-left: 0;
+   }
+   .sup-max{
+      margin-left: 0;
+      grid-area: sup-max;
+   }
+   .sup-min{
+      grid-area: sup-min;
+   }
+   .searcher-cont{
+      margin-bottom: 1em;
+   }
+
+}
+@media (max-width:629px){
+   .accordion-content{
+        grid-template-columns: 0.1fr 0.1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "price-min price-max"
+            "room-min room-min"
+            "bath-min bath-max"
+            "sup-min sup-max";
+   }
+   .room-max{
+      grid-area: room-min;
+      margin-left: 15em;
+   }
+   .searcher-cont{
+      margin-bottom: 1em;
+   }
+   .room-min{
+      margin-left: 7.5em;
+      grid-area: room-min;
+   }
+   .currency{
+      grid-area: room-min;
+   }
+   .keyword{
+      margin-top: 1.5em;
+   }
+   .sup-max{
+      margin-left: 0;
+      grid-area: sup-max;
+   }
+   .sup-min{
+      grid-area: sup-min;
+   }
+   .form-select-room{
+      width: 8.5em;
    }
    .span-sort-property{
       display: none;
@@ -296,21 +427,23 @@
    .search-property{
       font-size: x-large;
    }
-   .form-control-pp{
-      width: 24.5em;
-   }
-   .cont-uni-searcher{
-      max-width: max-content;
-      margin-top: 1.5vh;
-   }
    .form-select{
-      width: 12em;
+      width: 13em;
+   }
+   .form-control-pp{
+      width: 27.5em;
    }
    .form-select-price{
-      width: 12em;
+      width: 13em;
+   }
+   .form-select-price-currency{
+      width: 8.5em;
    }
    .btn-searcher{
-      width: 19.5em;
+      width: 16.5em;
+   }
+   .span-select{
+      font-size: 0.7em;
    }
 }
 .btn-cont-searcher{
@@ -330,7 +463,6 @@
    height: 30vh;
    overflow: hidden;
 }
-
                                                 // page product property
 
 .bx-info{
@@ -471,7 +603,7 @@ label.ipt-information{
 }
 h4.label-name-pt{
    margin-left: 3.5vh;
-   margin-top: 4vh;
+   margin-top: 3vh;
 }
 .img-fluid{
    overflow: hidden;
@@ -523,6 +655,7 @@ h4.label-name-pt{
 .image-name{
    display: grid;
    grid-template-columns: 30% 70%;
+   align-content: end;
 }
 .inner-advisor{
    display: grid;
@@ -589,6 +722,66 @@ h4.label-name-pt{
 .pp-txt-vs{
    color: #515359;
    font: normal normal normal 16px/36px Ubuntu;
+}
+            // modal agendar cita 
+.modal-content{
+   background: #ECECEC;
+   border-radius: 0;
+}
+.modal-sup{
+   display: grid;
+   grid-template-columns: 4fr 13fr;
+   grid-template-areas: "date butclo"
+                        "prop prop";
+}
+.date{
+   grid-area: date;
+   color: #012169;
+   font-size: x-large;
+}
+.butclo{
+   grid-area: butclo;
+}
+.property{
+   grid-area: prop;
+   color: #012169;
+   font-size: medium;
+}
+.modal-header{
+   border: 0;
+   justify-content: center;
+   margin-top: 1em;
+}
+.modal-date{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 0.1fr 0.1fr 0.1fr;
+   grid-row-gap: 1em;
+   justify-items: center;
+}
+.form-control-modal{
+   height: 3.2em;
+   width: 21.5em;
+   border-radius: 0%;
+   border-color: #63666A80;
+   background: white;
+   border-style: solid;
+   border-width: 1px;
+}
+.modal-footer{
+   justify-content: center;
+   border: 0;
+}
+.send-msg{
+   color: #418FDE;
+   font-size: small;
+}
+.form-label-modal{
+   color: #515359;
+   font: normal normal medium Ubuntu;
+   width: max-content;
+   font-size: 0.85em;
+   font-weight: 500;
 }
 .icon-property{
    color: #515359;
