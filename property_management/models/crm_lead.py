@@ -44,6 +44,9 @@ class PropertyManagementCrmLead(models.Model):
                 property_id = self.env['property.management.property'].browse(pid)
                 record.property_filter = [(4, property_id.id)]
                 record.real_estate_agent = property_id.real_estate_agent.id
+                record.real_estate_lease = property_id.real_estate_lease
+                record.real_estate_sale = property_id.real_estate_sale
+                record.type_id = property_id.type_id.id
                 record.property_ids = [(0, 0,
                          {'property_id': property_id.id,
                          }

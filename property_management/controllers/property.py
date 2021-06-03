@@ -371,6 +371,12 @@ class WebsiteSaleForm(http.Controller):
     def make_leaf(self, vals, add_amount=True):
         leaf = []
         op = False
+
+        property_stage_colocacion = request.env.ref(
+            "property_management.property_management_state_04"
+        ).id
+
+        leaf.append(("state_prop_id", "=", property_stage_colocacion))
         if vals.get("real_state_op", False) and vals[
             "real_state_op"
         ] in [1, 2, 3]:
@@ -395,7 +401,7 @@ class WebsiteSaleForm(http.Controller):
                 (
                     "total_area",
                     "<=",
-                    vals["total_area_max"].replace(",", "."),
+                    vals["total_area_max"],
                 )
             )
 
@@ -406,14 +412,14 @@ class WebsiteSaleForm(http.Controller):
 
         if vals.get("bedroom_quantity_max", False):
             leaf.append(
-                ("bedroom_quantity" "<=", vals["bedroom_quantity_max"])
+                ("bedroom_quantity", "<=", vals["bedroom_quantity_max"])
             )
 
         if vals.get("dependecies_min", False):
-            leaf.append(("dependecies", ">=", vals["dependecies_min"]))
+            leaf.append(("dependencies", ">=", vals["dependecies_min"]))
 
         if vals.get("dependecies_max", False):
-            leaf.append(("dependecies" "<=", vals["dependecies_max"]))
+            leaf.append(("dependencies", "<=", vals["dependecies_max"]))
 
         if vals.get("property_type_id", False):
             leaf.append(("type_id", "=", vals["property_type_id"]))
@@ -546,7 +552,6 @@ class WebsiteSaleForm(http.Controller):
             .sudo()
             .get_param("property_maps.key")
         )
-
         values = {
             "page_name": "Propiedad",
             "property": property_id,

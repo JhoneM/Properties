@@ -69,6 +69,9 @@ class PropertyManagementProperty(models.Model):
             }
             record.address_text = address_format % args
 
+    def format_int_price(self, num):
+        return f"{num:,}".format(num).replace(",", ".")
+
     state_prop_id = fields.Many2one('property.management.state', group_expand='_read_group_stage_ids', string=_('Estado'), default=_get_default_state_prop_id)
     type_id = fields.Many2one('property.management.type', string=_('Tipo de Propiedad'), index=True, ondelete='cascade')
     total_area = fields.Integer(string=_("Superficie Total"))

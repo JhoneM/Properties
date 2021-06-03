@@ -60,27 +60,27 @@
                                 </div>
                                 <div class="cont-uni-searcher room-min">
                                     <span class="span-select">DORMITORIO MÍN.</span>
-                                    <input class="form-select-room span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                    <input class="form-select-room span-select-li" id="bedroom_quantity_min" name="bedroom_quantity_min" placeholder="  -" t-att-value="get_vals['bedroom_quantity_min'] if  'bedroom_quantity_min' in get_vals else ''"/>
                                 </div>
                                 <div class="cont-uni-searcher room-max">
                                     <span class="span-select">DORMITORIO MÁX.</span>
-                                    <input class="form-select-room span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                    <input class="form-select-room span-select-li" id="bedroom_quantity_max" name="bedroom_quantity_max" placeholder="  -" t-att-value="get_vals['bedroom_quantity_max'] if  'bedroom_quantity_max' in get_vals else ''"/>
                                 </div>
                                 <div class="cont-uni-searcher bath-min">
                                     <span class="span-select">BAÑOS MÍN.</span>
-                                    <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                    <input class="form-select-price span-select-li" id="dependecies_min" name="dependecies_min" placeholder="  -" t-att-value="get_vals['dependecies_min'] if  'dependecies_min' in get_vals else ''"/>
                                 </div>
                                 <div class="cont-uni-searcher bath-max">
                                     <span class="span-select">BAÑOS MÁX.</span>
-                                    <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                    <input class="form-select-price span-select-li" id="dependecies_max" name="dependecies_max" placeholder="  -" t-att-value="get_vals['dependecies_max'] if  'dependecies_max' in get_vals else ''"/>
                                 </div>
                                 <div class="cont-uni-searcher sup-min">
                                     <span class="span-select">SUPERFICIE MÍN.</span>
-                                    <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                    <input class="form-select-price span-select-li" id="total_area_min" name="total_area_min" placeholder="  -" t-att-value="get_vals['total_area_min'] if  'total_area_min' in get_vals else ''"/>
                                 </div>
                                 <div class="cont-uni-searcher sup-max">
                                     <span class="span-select">SUPERFICIE MÁX.</span>
-                                    <input class="form-select-price span-select-li" id="amount_min" name="amount_min" placeholder="  -" t-att-value="get_vals['amount_min'] if  'amount_min' in get_vals else ''"/>
+                                    <input class="form-select-price span-select-li" id="total_area_max" name="total_area_max" placeholder="  -" t-att-value="get_vals['total_area_max'] if  'total_area_max' in get_vals else ''"/>
                                 </div>
                             </div>
                             <a class="accordion-toggle">
@@ -130,15 +130,17 @@
                     <t t-if="property.real_estate_lease">
                         <li class="property-price">
                             <span class="property-p-label">Arriendo</span>
-                            <!-- <span class="property-price-currency" t-esc="property.lease_price_currency.symbol"/>&#032; -->
-                            <span class="property-price-valor" t-esc="property.lease_price" t-options="{'widget': 'monetary', 'display_currency': property.lease_price_currency}"/>
+                            <t class="property-price-currency" t-esc="property.lease_price_currency.symbol"/>&#032;
+                            <t class="property-price-valor" t-esc="property.format_int_price(property.lease_price)"/>
+                            <!-- <span class="property-price-valor" t-esc="property.lease_price" t-options="{'widget': 'monetary', 'display_currency': property.lease_price_currency}"/> -->
                         </li>
                     </t>
                     <t t-if="property.real_estate_sale">
                         <li class="property-price">
                             <span class="property-p-label">Venta</span>
-                            <!-- <span class="property-price-currency" t-esc="property.sale_price_currency.symbol"/>&#032; -->
-                            <span class="property-price-valor" t-esc="property.sale_price" t-options="{'widget': 'monetary', 'display_currency': property.sale_price_currency}"/>
+                            <t class="property-price-currency" t-esc="property.sale_price_currency.symbol"/>&#032;
+                            <t class="property-price-valor" t-esc="property.format_int_price(property.sale_price)"/>
+                            <!-- <span class="property-price-valor" t-esc="property.sale_price" t-options="{'widget': 'monetary', 'display_currency': property.sale_price_currency}"/> -->
                         </li>
                     </t>
                 </div>
@@ -306,7 +308,7 @@
                                                     <span class="s_website_form_label_content">TELÉFONO</span>
                                                 </label>
                                                 <div class="col-sm input-data-client">
-                                                    <input type="tel" class="form-control s_website_form_input" name="tel_from" required="1" id="0s11rxhrqpe"/>
+                                                    <input type="tel" class="form-control s_website_form_input" name="mobile" required="1" id="0s11rxhrqpe"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -321,7 +323,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="hidden" class="form-control s_website_form_input" name="name" required="true" value="consulta del website" id="name"/>
+                                        <input type="hidden" class="form-control s_website_form_input" name="name" required="true" t-att-value="property.head" id="name"/>
 
                                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                                         <input type="hidden" name="property_url" t-att-value="request.httprequest.base_url"/>
@@ -349,15 +351,17 @@
                                     <t t-if="property.real_estate_lease">
                                         <li class="property-price-bip">
                                             <span class="property-p-label">Arriendo</span>
-                                            <!-- <t class="property-price-currency" t-esc="property.lease_price_currency.symbol"/>&#032; -->
-                                            <t class="property-price" t-esc="property.lease_price" t-options="{'widget': 'monetary', 'display_currency': property.lease_price_currency}"/>
+                                            <t class="property-price-currency" t-esc="property.lease_price_currency.symbol"/>&#032;
+                                            <t class="property-price" t-esc="property.format_int_price(property.lease_price)"/>
+                                            <!-- <t class="property-price" t-esc="property.lease_price" t-options="{'widget': 'monetary', 'display_currency': property.lease_price_currency}"/> -->
                                         </li>
                                     </t>
                                     <t t-if="property.real_estate_sale">
                                         <li class="property-price-bip">
                                             <span class="property-p-label">Venta</span>
-                                            <!-- <t class="property-price-currency" t-esc="property.sale_price_currency.symbol"/>&#032; -->
-                                            <t class="property-price" t-esc="property.sale_price" t-options="{'widget': 'monetary', 'display_currency': property.sale_price_currency}"/>
+                                            <t class="property-price-currency" t-esc="property.sale_price_currency.symbol"/>&#032;
+                                            <t class="property-price" t-esc="property.format_int_price(property.sale_price)"/>
+                                            <!-- <t class="property-price" t-esc="property.sale_price" t-options="{'widget': 'monetary', 'display_currency': property.sale_price_currency}"/> -->
                                         </li>
                                     </t>
                                 </div>
