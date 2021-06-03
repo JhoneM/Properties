@@ -11,6 +11,8 @@
         <div class="cont-nav">
             <nav class="navbar navbar-expand-lg navbar-light fluid navbar-searcher">
                 <div class="searcher-cont" id="menu">
+            
+
                     <form class="row" style="justify-content: center">
                         <div class="accordion" id="accordion" >
                             <div class="row searcher-nav">
@@ -273,6 +275,8 @@
                         <!-- box i want more information -->
                         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 bx-info">
                             <div class="container box-container-mf">
+                                <span class="s_website_form" data-vcss="001" data-snippet="s_website_form" data-name="Form">
+
                                 <form action="/website_form/" method="post" enctype="multipart/form-data" class="box-more-info o_mark_required" data-mark="*" data-success-mode="redirect" data-success-page="/contactus-thank-you" data-model_name="crm.lead">
                                     <div class="row justify-content-center">
                                             <span class="label-more-information" for="1xke9pk0f8t">Quiero más Información</span>
@@ -317,13 +321,17 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <input type="hidden" class="form-control s_website_form_input" name="name" required="true" value="consulta del website" id="name"/>
+
+                                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                        <input type="hidden" name="property_url" t-att-value="request.httprequest.base_url"/>
                                         <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
                                             <div class="s_website_form_label label-btn-wmi"/>
-                                            <a href="#" role="button" class="btn btn-outline-primary btn-lg btn-block s_website_form_send o_default_snippet_text btn-send-info">ENVIAR</a>
+                                            <a  role="button" class="btn btn-outline-primary btn-lg btn-block s_website_form_send o_default_snippet_text btn-send-info">ENVIAR</a>
                                             <span id="s_website_form_result"/>
                                         </div>
                                     </div>
-                                </form>
+                                </form></span>
                             </div>
                         </div>
                     </div>
