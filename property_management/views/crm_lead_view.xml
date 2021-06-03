@@ -21,6 +21,7 @@
                     <button name="phone_action_blacklist_remove" class="fa fa-ban text-danger" title="This phone number is blacklisted for SMS Marketing. Click to unblacklist." type="object" context="{'default_phone': mobile}" groups="base.group_user" attrs="{'invisible': [('mobile_blacklisted', '=', False)]}"/>
                     <field name="mobile" widget="phone" string="Mobile" readonly="True"/>
                 </div>
+                <field name="contact_name" string="Nombre de Contacto"/>
                 <field name="requeriment_date"/>
             </xpath>
             <xpath expr="//group[@name='opportunity_partner']" position="after">
@@ -29,6 +30,9 @@
                     <field name="team_id" string="Sucursal" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
                     <field name="company_id" string="Compañía" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
                     <field name="referred_employee" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                    <field name="real_estate_agent" options="{'no_open': True, 'no_create': True, 'no_create_edit': True}"/>
+                    <field name="property_url" widget="url" options="{'readonly': True}"/>
+
                 </group>
             </xpath>
             <xpath expr="/form/sheet/group/group[6]" position="replace">
